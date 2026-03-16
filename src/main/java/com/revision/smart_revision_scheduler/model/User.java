@@ -22,6 +22,14 @@ public class User {
     @Column(nullable = false)
     private String password;
 
+    @Column(unique = true)
+    private String email;
+
+    private java.time.LocalDateTime lastLogin;
+
+    private java.time.LocalDateTime lastInactivityReminderSent;
+
     @Enumerated(EnumType.STRING)
     private Role role;
+    private boolean enabled = true;
 }

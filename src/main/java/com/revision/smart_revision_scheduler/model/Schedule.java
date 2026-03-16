@@ -23,4 +23,7 @@ public class Schedule {
     private LocalDate revisionDate;
 
     private double fatigueScore;
+
+    @Column(columnDefinition = "boolean default false")
+    private boolean reminderSent;
 }
