@@ -1,0 +1,29 @@
+{
+  "subjects": {
+    "criminal-law": {
+      "title": "Criminal Law (IPC/CrPC)",
+      "explanation": "Foundational statutes for law enforcement and judicial proceedings.",
+      "topics": ["Section 302 (Murder)", "Section 376 (Sexual Offence)", "Section 420 (Cheating)", "Art 21 vs Police Power", "FIR Procedures (Sec 154)"]
+    },
+    "internal-security": {
+      "title": "Internal Security",
+      "explanation": "Managing national threats, insurgency, and border integrity.",
+      "topics": ["Left Wing Extremism", "Cyber Terrorism", "Coast Guard Protocol", "Money Laundering (PMLA)", "Unlawful Activities (UAPA)"]
+    },
+    "police-ethics": {
+      "title": "Police Ethics",
+      "explanation": "Moral conduct and community policing strategies.",
+      "topics": ["Democratic Policing", "Custodial Integrity", "Human Rights Awareness", "Crowd Control Psychology", "Corruption Deterrence"]
+    }
+  },
+  "mcqs": [
+    { "id": 1, "question": "Which section of IPC deals with the punishment for Murder?", "options": ["Sec 300", "Sec 302", "Sec 307", "Sec 304"], "answer": "B", "explanation": "Section 300 defines Murder, while Section 302 prescribes the punishment (Death or Life Imprisonment)." },
+    { "id": 2, "question": "Under which CrPC section is an FIR (First Information Report) registered?", "options": ["Sec 151", "Sec 154", "Sec 161", "Sec 164"], "answer": "B", "explanation": "Section 154 of the Code of Criminal Procedure deals with information in cognizable cases (FIR)." },
+    { "id": 3, "question": "What is the maximum duration for which a person can be kept in police custody before meeting a magistrate?", "options": ["12 Hours", "24 Hours", "48 Hours", "72 Hours"], "answer": "B", "explanation": "Article 22 of the Constitution and Sec 57 of CrPC mandate production before a magistrate within 24 hours." }
+  ],
+  "fitness": [
+    { "drill": "Morning Endurance Run", "target": "5KM in 25 Minutes", "focus": "Cardiovascular Stamina" },
+    { "drill": "Body Weight Drill", "target": "40 Pushups / 10 Pullups", "focus": "Upper Body Strength" },
+    { "drill": "High Jump / Long Jump", "target": "1.2M / 4.5M", "focus": "Explosive Power" }
+  ]
+}

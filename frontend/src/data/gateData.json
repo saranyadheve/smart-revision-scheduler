@@ -1,0 +1,68 @@
+{
+  "subjects": {
+    "data-structures": {
+      "title": "Data Structures",
+      "explanation": "Fundamental building blocks for managing data efficiently.",
+      "topics": ["Linked Lists", "Stacks & Queues", "Binary Search Trees", "AVL & B-Trees", "Hashing Algorithms"]
+    },
+    "algorithms": {
+      "title": "Algorithms",
+      "explanation": "Step-by-step logic for problem-solving and efficiency analysis.",
+      "topics": ["Asymptotic Analysis", "Divide & Conquer", "Greedy Strategy", "Dynamic Programming", "Graph Algorithmic complexity"]
+    },
+    "operating-systems": {
+      "title": "Operating Systems",
+      "explanation": "The interface between hardware and the end-user.",
+      "topics": ["Process Lifecycle", "CPU Scheduling", "Deadlock Banker's Alg", "Memory Paging", "Page Replacement"]
+    },
+    "dbms": {
+      "title": "DBMS",
+      "explanation": "Structured systems for large-scale data storage and retrieval.",
+      "topics": ["ER Modeling", "Normalization (3NF, BCNF)", "SQL Queries", "Transaction ACID", "Indexing B-Trees"]
+    },
+    "networks": {
+      "title": "Computer Networks",
+      "explanation": "Communication protocols and network architecture.",
+      "topics": ["OSI Layer Models", "TCP/IP Suite", "IPv4/IPv6 Addressing", "Routing Protocols", "Socket Programming"]
+    },
+    "architecture": {
+      "title": "Architecture (COA)",
+      "explanation": "Hard-core systems design and instruction execution.",
+      "topics": ["Instruction Pipelining", "Cache Mapping", "CPU Organization", "I/O Interrupts", "Memory Interleaving"]
+    }
+  },
+  "mcqs": [
+    { "id": 1, "question": "What is the worst-case time complexity of QuickSort?", "options": ["O(n log n)", "O(n^2)", "O(n)", "O(log n)"], "answer": "B", "explanation": "Worst case occurs when the pivot is the smallest or largest element, leading to n^2 comparisons." },
+    { "id": 2, "question": "Which of the following is NOT an ACID property in DBMS?", "options": ["Atomicity", "Consistency", "Isolation", "Durability", "Interface"], "answer": "E", "explanation": "ACID stands for Atomicity, Consistency, Isolation, and Durability." },
+    { "id": 3, "question": "In Operating Systems, what does 'Starvation' imply?", "options": ["Deadlock", "Process failure", "Infinite waiting for resources", "CPU idle"], "answer": "C", "explanation": "Starvation happens when a low-priority process waits indefinitely for a resource grabbed by high-priority processes." },
+    { "id": 4, "question": "Which layer of the OSI model handles error-free delivery of data frames?", "options": ["Physical", "Data Link", "Network", "Transport"], "answer": "B", "explanation": "Data Link layer is responsible for node-to-node framing and error detection." },
+    { "id": 5, "question": "What is the maximum number of nodes in a binary tree of height 'h'?", "options": ["2^h", "2^(h+1) - 1", "2^h - 1", "h^2"], "answer": "B", "explanation": "A full binary tree of height h (root at 0) has 2^(h+1)-1 nodes." },
+    { "id": 6, "question": "Which sorting algorithm is stable and has O(n log n) worst-case complexity?", "options": ["QuickSort", "HeapSort", "MergeSort", "SelectionSort"], "answer": "C", "explanation": "MergeSort is always O(n log n) and maintains the relative order of equal elements (stable)." },
+    { "id": 7, "question": "What is the primary objective of Caching?", "options": ["Increase Disk Space", "Reduce Memory Access latency", "Improve GPU speed", "Data backup"], "answer": "B", "explanation": "Caching stores frequently accessed data in faster memory (SRAM) to reduce latency." },
+    { "id": 8, "question": "What does 'BCNF' stand for in DBMS?", "options": ["Binary Coded Normal Form", "Boyce-Codd Normal Form", "Basic Core Normal Form", "Base Code Normal Form"], "answer": "B", "explanation": "BCNF is a stricter version of 3NF where every determinant is a candidate key." },
+    { "id": 9, "question": "In TCP, what is 'Three-Way Handshake' used for?", "options": ["Closing connection", "Initial synchronization", "Error checking", "Congestion control"], "answer": "B", "explanation": "TCP uses SYN, SYN-ACK, and ACK to establish a reliable connection." },
+    { "id": 10, "question": "Which CPU Scheduling algorithm can lead to Convoy Effect?", "options": ["Round Robin", "FCFS", "SJF", "Priority"], "answer": "B", "explanation": "FCFS (First-Come, First-Served) can cause shorter processes to wait behind long ones (Convoy Effect)." },
+    { "id": 11, "question": "A B-Tree of order 'm' can have at most how many children?", "options": ["m-1", "m", "m/2", "2m"], "answer": "B", "explanation": "By definition, a B-tree of order m can have a maximum of m children per node." },
+    { "id": 12, "question": "Which register holds the address of the next instruction to be executed?", "options": ["IR", "MAR", "Program Counter", "Accumulator"], "answer": "C", "explanation": "The PC (Program Counter) tracks the next instruction's address in memory." },
+    { "id": 13, "question": "What is the purpose of 'Virtual Memory'?", "options": ["Increase RAM speed", "Enable large processes in small RAM", "Backup storage", "Graphics acceleration"], "answer": "B", "explanation": "Virtual Memory creates an illusion of large memory by using disk space as secondary storage." },
+    { "id": 14, "question": "Which protocol is used for email retrieval?", "options": ["SMTP", "HTTP", "POP3", "SNMP"], "answer": "C", "explanation": "POP3 (Post Office Protocol) or IMAP is used to retrieve emails; SMTP is used to send them." },
+    { "id": 15, "question": "If a graph has 'n' vertices, what is the maximum number of edges in a simple undirected graph?", "options": ["n", "n(n-1)", "n(n-1)/2", "2n"], "answer": "C", "explanation": "nC2 = n(n-1)/2 edges for a complete undirected graph." }
+  ],
+  "formulas": [
+    { "title": "Pipelining Execution", "content": "ET_pipe = (k + n - 1) * Clock_cycle. Speedup S = n*k / (k + n - 1)." },
+    { "title": "Master Theorem", "content": "T(n) = aT(n/b) + f(n). Comparison of n^log_b(a) with f(n)." },
+    { "title": "Networking: Channel Capacity", "content": "Shannon's: C = B * log_2(1 + S/N). Nyquist: C = 2 * B * log_2(L)." },
+    { "title": "DBMS: Normalization", "content": "1NF (Atomic), 2NF (No partial dependency), 3NF (No transitive dependency), BCNF (Determinant must be Key)." },
+    { "title": "OS: Effective Access Time", "content": "EAT = (1-p) * m + p * f. Where p is page fault rate, m is memory access time, f is fault overhead." },
+    { "title": "Algo: Complexity Classes", "content": "P ⊆ NP ⊆ NP-Complete ⊆ NP-Hard. SAT is the first NP-Complete problem." },
+    { "title": "COA: Cache Access", "content": "Avg_Access = HitRate * HitTime + (1-HitRate) * MissPenalty." },
+    { "title": "DS: Heap Build", "content": "Building a heap from scratch takes O(n) time, not n log n." },
+    { "title": "Networks: TCP Header", "content": "Minimum header size is 20 bytes. Maximum with options is 60 bytes." },
+    { "title": "OS: Banker's Safety", "content": "Need[i][j] = Max[i][j] - Allocation[i][j]. Check if Need <= Available." }
+  ],
+  "library": [
+    { "subject": "OS", "book": "Modern Operating Systems", "author": "Andrew S. Tanenbaum", "link": "#tanenbaum" },
+    { "subject": "Algorithms", "book": "Introduction to Algorithms", "author": "CLRS", "link": "#clrs" },
+    { "subject": "DBMS", "book": "Database System Concepts", "author": "Korth", "link": "#korth" }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "domains": {
+    "system-design": {
+      "title": "System Design",
+      "explanation": "Scalable architecture for millions of users.",
+      "concepts": ["Load Balancing", "Microservices", "Horizontal vs Vertical Scaling", "Database Sharding", "Caching with Redis"]
+    },
+    "dsa-pro": {
+      "title": "Coding Strategy",
+      "explanation": "Algorithmic patterns for competitive placement.",
+      "concepts": ["Sliding Window", "Two Pointers", "Dynamic Programming", "Recursion & Backtracking", "Sorting & Map Logic"]
+    },
+    "cloud-ops": {
+      "title": "Cloud & Devops",
+      "explanation": "The infrastructure of modern tech deployments.",
+      "concepts": ["AWS/Azure Services", "Docker & Containers", "Kubernetes Orchestration", "CI/CD Pipelines", "Serverless Architecture"]
+    },
+    "behavioral": {
+      "title": "Behavioral Intel",
+      "explanation": "Soft skills and cultural alignment for Big Tech.",
+      "concepts": ["STAR Method", "Leadership Principles", "Conflict Resolution", "Project Deep Dive", "System Ownership"]
+    }
+  },
+  "mcqs": [
+    { "id": 1, "question": "What is the primary difference between a Load Balancer and an API Gateway?", "options": ["LB only routes; AG provides auth/rate-limiting", "AG only routes; LB provides auth", "They are identical", "LB works on L3, AG on L7 only"], "answer": "A", "explanation": "Load Balancer distributes traffic, while API Gateway adds cross-cutting concerns like authentication and quota." },
+    { "id": 2, "question": "In the CAP theorem, what does 'A' stand for?", "options": ["Atomicity", "Availability", "Accuracy", "Accountability"], "answer": "B", "explanation": "CAP stands for Consistency, Availability, and Partition Tolerance." },
+    { "id": 3, "question": "Which data structure is best for implementing an LRU Cache?", "options": ["HashMap", "Doubly Linked List + HashMap", "Binary Search Tree", "Stack"], "answer": "B", "explanation": "HashMap gives O(1) lookup, while DLL gives O(1) eviction/insertion." },
+    { "id": 4, "question": "What is 'Vertical Scaling'?", "options": ["Adding more servers", "Adding more CPU/RAM to a single server", "Moving to Cloud", "Reducing server cost"], "answer": "B", "explanation": "Vertical scaling (scaling up) means increasing the capacity of an existing machine." },
+    { "id": 5, "question": "Which of these is a NoSQL Document Store?", "options": ["MySQL", "Redis", "MongoDB", "PostgreSQL"], "answer": "C", "explanation": "MongoDB is a schema-less document database (BSON)." },
+    { "id": 6, "question": "What does 'S' stand for in SOLID principles?", "options": ["Stability", "Single Responsibility", "Security", "Scalability"], "answer": "B", "explanation": "SOLID: Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, Dependency Inversion." },
+    { "id": 7, "question": "Which algorithm is used for detecting cycles in a Linked List?", "options": ["Binary Search", "Floyd's Tortoise and Hare", "QuickSort", "BFS"], "answer": "B", "explanation": "Two pointers (fast and slow) are used to detect a cycle." },
+    { "id": 8, "question": "What is the purpose of 'Docker'?", "options": ["Data backup", "Operating System", "Containerization", "Code editing"], "answer": "C", "explanation": "Docker pakages applications and dependencies into isolated containers." },
+    { "id": 9, "question": "In Git, what does 'Rebase' do?", "options": ["Merge two branches", "Rewrite commit history", "Delete a branch", "Check code status"], "answer": "B", "explanation": "Rebase reapplies commits on top of another base tip." },
+    { "id": 10, "question": "What is a 'Database Index' used for?", "options": ["Storing images", "Speeding up SELECT queries", "Enforcing Security", "Joining tables faster"], "answer": "B", "explanation": "Indexes provide a fast lookup path to data, reducing scan time." },
+    { "id": 11, "question": "Which design pattern ensures a class has only one instance?", "options": ["Factory", "Observer", "Singleton", "Adapter"], "answer": "C", "explanation": "Singleton restricts instantiation of a class to a single object." },
+    { "id": 12, "question": "What is the time complexity of searching in a HashMap (average)?", "options": ["O(n)", "O(log n)", "O(1)", "O(n^2)"], "answer": "C", "explanation": "HashMaps provide constant time complexity O(1) for lookups on average." },
+    { "id": 13, "question": "What does the 'T' in STAR method stand for?", "options": ["Time", "Target", "Task", "Team"], "answer": "C", "explanation": "STAR: Situation, Task, Action, Result." },
+    { "id": 14, "question": "Which protocol is used for real-time bidirectional communication?", "options": ["HTTP", "WebSockets", "FTP", "SSH"], "answer": "B", "explanation": "WebSockets allow for full-duplex communication between client and server." },
+    { "id": 15, "question": "What is 'Distributed Caching'?", "options": ["Browser cache", "Cache shared across many servers", "Local disk cache", "RAM cache"], "answer": "B", "explanation": "Distributed caches (like Redis clusters) are used in large-scale systems to store data across nodes." }
+  ],
+  "patterns": [
+    { "name": "Sliding Window", "use": "Find longest subarray, sum of window.", "example": "Max sum subarray of size k." },
+    { "name": "Two Pointers", "use": "Sorted arrays, cycle detection.", "example": "Pair with given sum." },
+    { "name": "Fast & Slow Pointers", "use": "Cycle detection in lists/arrays.", "example": "Hare & Tortoise algorithm." },
+    { "name": "Merge Intervals", "use": "Overlapping ranges.", "example": "Merging time slots for meetings." },
+    { "name": "Cyclic Sort", "use": "Finding missing numbers 1 to n.", "example": "First missing positive." },
+    { "name": "In-place Reversal", "use": "Link list modifications.", "example": "Reverse sub-list." },
+    { "name": "BFS", "use": "Tree/Graph level order, shortest path.", "example": "Zig-zag traversal." },
+    { "name": "DFS", "use": "Tree/Graph deep traversal, path finding.", "example": "All paths from root to leaf." },
+    { "name": "Topological Sort", "use": "Dependency ordering.", "example": "Course schedule." },
+    { "name": "DP: 0/1 Knapsack", "use": "Decision making with constraints.", "example": "Subset sum problem." }
+  ],
+  "behavioral": [
+    { "scenario": "Conflict with Peer", "advice": "Focus on the goal, not the person. Use 'I' statements. Find common ground." },
+    { "scenario": "Handling Failure", "advice": "Acknowledge the mistake, explain what you learned, and how you prevented it from recurring." },
+    { "scenario": "Prioritizing Tasks", "advice": "Use Eisenhower matrix. Align with business value. Communicate trade-offs." }
+  ]
+}

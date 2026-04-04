@@ -1,0 +1,177 @@
+{
+  "subjects": {
+    "history": {
+      "title": "History: The Tapestry of Time",
+      "sections": [
+        {
+          "topic": "Ancient India",
+          "explanation": "One of the world's earliest urban civilizations (c. 2500–1750 BCE). Known for grid-based town planning and advanced drainage.",
+          "facts": ["Harappa was the first site discovered.", "Mohenjo-daro features the 'Great Bath'.", "Evidence of maritime trade with Mesopotamia."]
+        },
+        {
+          "topic": "Vedic Age",
+          "explanation": "Period when the Vedas were composed (c. 1500–500 BCE). Transitioned from early pastoralism to complex social hierarchies.",
+          "facts": ["Rig Veda is the oldest religious text.", "Sama Veda is the Veda of melodies/chants.", "Yajur Veda contains sacrificial formulas.", "Atharva Veda deals with everyday life/charms."]
+        },
+        {
+          "topic": "Medieval India",
+          "explanation": "Five dynasties that ruled from Delhi (1206–1526) and the later Mughal dominance.",
+          "facts": ["Sultanate: Mamluk, Khalji, Tughlaq, Sayyid, Lodi.", "Mughals: Founded by Babur (1526); Peak under Akbar's 'Din-i-Ilahi'."]
+        },
+        {
+          "topic": "Modern India",
+          "explanation": "Era of British Rule (1757-1947) and the subsequent rise of Indian Nationalism.",
+          "facts": ["1757: Battle of Plassey marks initial British foothold.", "1915: Return of Mahatma Gandhi to India.", "1930: Dandi March and Civil Disobedience."]
+        }
+      ]
+    },
+    "polity": {
+      "title": "Indian Polity & Governance",
+      "sections": [
+        {
+          "topic": "Constitution of India",
+          "description": "Supreme law of India. It establishes the framework for government and citizens' rights.",
+          "articles": ["Art 14: Equality before law.", "Art 17: Abolition of untouchability.", "Art 19: Freedom of speech.", "Art 21: Protection of life and liberty."]
+        },
+        {
+          "topic": "Parliamentary System",
+          "description": "Bicameral legislature (Lok Sabha and Rajya Sabha) based on the Westminster model.",
+          "facts": ["President is the head of state, PM is the head of government.", "Money Bills can only be introduced in Lok Sabha (Art 110)."]
+        }
+      ]
+    },
+    "geography": {
+      "title": "Physical & Indian Geography",
+      "sections": [
+        {
+          "topic": "Physical Geography",
+          "description": "Focuses on the natural structures of the Earth and atmospheric phenomena.",
+          "facts": ["Composition: Nitrogen (78%), Oxygen (21%).", "Plate Tectonics: Movement of earth clusters causing earthquakes."]
+        },
+        {
+          "topic": "Indian Geography",
+          "description": "Study of India's rivers, mountains, and climate zones.",
+          "facts": ["Himalayas: Divide India from Central Asia.", "Monsoon: Southwest winds (June-Sept) bringing seasonal rain."]
+        }
+      ]
+    },
+    "economy": {
+      "title": "Indian Economy",
+      "sections": [
+        {
+          "topic": "National Income",
+          "explanation": "Measurement of economic activity via GDP, GNP, and NNP.",
+          "facts": ["Real GDP: Adjusted for inflation.", "Nominal GDP: Market prices of the current year."]
+        },
+        {
+          "topic": "Fiscal Policy",
+          "explanation": "Use of government spending and taxation to influence the economy.",
+          "facts": ["Budget: Presented annually under Article 112 (Annual Financial Statement).", "Direct Taxes: Income tax, Corporate tax."]
+        }
+      ]
+    },
+    "environment": {
+      "title": "Environment & Ecology",
+      "sections": [
+        {
+          "topic": "Biodiversity",
+          "description": "Varity of life forms. India has 4 biodiversity hotspots.",
+          "facts": ["Hotspots: Himalayas, Indo-Burma, Sundalands, Western Ghats.", "Red Data Book: Published by IUCN for endangered species."]
+        }
+      ]
+    },
+    "science": {
+      "title": "Science & Tech",
+      "sections": [
+        {
+          "topic": "Space Tech",
+          "description": "ISRO's pioneering missions and technological self-reliance.",
+          "facts": ["Chandrayaan-3: First successful landing on Moon's South Pole.", "Gaganyaan: India's manned space flight program."]
+        }
+      ]
+    }
+  },
+  "ncertBooks": [
+    { "class": "Class 6", "subject": "History", "name": "Our Pasts - I", "desc": "Ancient Indian history for beginners.", "link": "#book6" },
+    { "class": "Class 7", "subject": "History", "name": "Our Pasts - II", "desc": "Explore the medieval era and regional kingdoms.", "link": "#book7" },
+    { "class": "Class 8", "subject": "History", "name": "Our Pasts - III", "desc": "Modern Indian history from 18th century.", "link": "#book8" },
+    { "class": "Class 9", "subject": "Polity", "name": "Democratic Politics - I", "desc": "Foundational concepts of democracy and rights.", "link": "#book9" },
+    { "class": "Class 10", "subject": "Geography", "name": "Contemporary India - II", "desc": "Natural resources and manufacturing industries.", "link": "#book10" },
+    { "class": "Class 11", "subject": "History", "name": "Themes in World History", "desc": "Global civilizations and industrial revolution.", "link": "#book11" },
+    { "class": "Class 12", "subject": "Polity", "name": "Politics in India since Independence", "desc": "Post-1947 political history and challenges.", "link": "#book12" }
+  ],
+  "mcqs": [
+    { "id": 1, "question": "Which Article of the Constitution deals with the Annual Financial Statement?", "options": ["Art 108", "Art 110", "Art 112", "Art 117"], "answer": "C", "explanation": "Article 112 mandates the President to present the Annual Financial Statement (Budget) before Parliament." },
+    { "id": 2, "question": "Who was the 'Father of the Indian Unrest' according to British historians?", "options": ["Lala Lajpat Rai", "Bal Gangadhar Tilak", "Bipin Chandra Pal", "Aurobindo Ghosh"], "answer": "B", "explanation": "Bal Gangadhar Tilak was often called the Father of Indian Unrest for his radical nationalist approach." },
+    { "id": 3, "question": "The 'Deepor Beel' Ramsar site is located in which state?", "options": ["Assam", "Manipur", "Odisha", "Gujarat"], "answer": "A", "explanation": "Deepor Beel is a major permanent freshwater lake and Ramsar site in Assam." },
+    { "id": 4, "question": "CRISPR-Cas9 is a technology often mentioned in the context of?", "options": ["Stem cell research", "Gene editing", "Artificial Intelligence", "Blockchain"], "answer": "B", "explanation": "CRISPR-Cas9 is a revolutionary gene-editing tool used to precisely modify DNA." },
+    { "id": 5, "question": "What is the primary objective of 'Operatiion Flood'?", "options": ["Flood Control", "Dairy Development", "Groundwater Recharge", "River Linking"], "answer": "B", "explanation": "Operation Flood was the world's largest dairy development program which made India a milk-sufficient nation." },
+    { "id": 6, "question": "Which layer of the atmosphere contains the Ozone layer?", "options": ["Troposphere", "Stratosphere", "Mesosphere", "Exosphere"], "answer": "B", "explanation": "The Stratosphere protects Earth from UV radiation via the Ozone layer." },
+    { "id": 7, "question": "Dandi March was starting from which location?", "options": ["Dandi", "Sabarmati Ashram", "Surat", "Ahmedabad"], "answer": "B", "explanation": "Gandhi started the 24-day march from Sabarmati Ashram on March 12, 1930." },
+    { "id": 8, "question": "What does Gini Coefficient measure?", "options": ["Inflation", "Unemployment", "Income Inequality", "Economic Growth"], "answer": "C", "explanation": "Gini Coefficient is a statistical measure of distribution used to represent income or wealth inequality." },
+    { "id": 9, "question": "Which planet is known as Earth's twin?", "options": ["Mars", "Venus", "Jupiter", "Saturn"], "answer": "B", "explanation": "Venus is called Earth's twin due to its similar size, mass, and proximity to the Sun." },
+    { "id": 10, "question": "The concept of 'Concurrent List' was borrowed from which country?", "options": ["USA", "Canada", "Australia", "South Africa"], "answer": "C", "explanation": "The Concurrent List concept in the Indian Constitution was borrowed from the Australian Constitution." },
+    { "id": 11, "question": "Kyoto Protocol is related to?", "options": ["Ozone Depletion", "Sustainable Development", "Greenhouse Gases", "Nuclear Safety"], "answer": "C", "explanation": "The Kyoto Protocol (1997) is an international treaty aimed at reducing greenhouse gas emissions." },
+    { "id": 12, "question": "Who was the first woman President of the Indian National Congress?", "options": ["Sarojini Naidu", "Annie Besant", "Nellie Sengupta", "Indira Gandhi"], "answer": "B", "explanation": "Annie Besant presided over the Calcutta session in 1917, becoming the first woman INC President." },
+    { "id": 13, "question": "Which Five-Year Plan focused on 'Garibi Hatao'?", "options": ["Third", "Fourth", "Fifth", "Sixth"], "answer": "C", "explanation": "The 'Garibi Hatao' slogan was part of the 5th Five-Year Plan during the Indira Gandhi era." },
+    { "id": 14, "question": "What is the pH value of pure water?", "options": ["5", "7", "9", "11"], "answer": "B", "explanation": "Pure water is neutral and has a pH value of 7." },
+    { "id": 15, "question": "The 'Project Tiger' was launched in which year?", "options": ["1971", "1973", "1975", "1977"], "answer": "B", "explanation": "Project Tiger was launched by the Govt of India in 1973 from Jim Corbett National Park." }
+  ],
+  "notes": [
+    { "title": "Fundamental Rights", "content": "Part III (Art 12-35). Enforceable in courts. Aimed at political democracy." },
+    { "title": "Directive Principles", "content": "Part IV (Art 36-51). Non-enforceable. Aimed at social and economic democracy." },
+    { "title": "Fundamental Duties", "content": "Part IV-A (Art 51A). Added by 42nd Amendment (1976). Moral obligations of citizens." },
+    { "title": "Black Soil", "content": "Also known as Regur soil. Ideal for cotton cultivation. Found mainly in Deccan Trap." },
+    { "title": "Red Soil", "content": "Rich in iron. Formed by weathering of crystalline rocks. Covers 18% of India." },
+    { "title": "Repo Rate", "content": "The rate at which RBI lends money to commercial banks. Used to control inflation." },
+    { "title": "GST", "content": "101st Amendment Act (2016). One nation, one tax. Indirect tax destination-based." },
+    { "title": "Monsoon", "content": "Derived from 'Mausim'. Seasonal reversal of wind direction. Impacted by El Nino." },
+    { "title": "Biosphere Reserves", "content": "India has 18 BRs. 12 are part of UNESCO's MAB (Man and Biosphere) program." },
+    { "title": "Continental Drift", "content": "Theory by Alfred Wegener. Pangaea split into Laurasia and Gondwanaland." }
+  ],
+  "freedomFighters": [
+    {
+      "name": "Mahatma Gandhi",
+      "bio": "Apostle of non-violence. Led Dandi March, Non-Cooperation, and Quit India movements. Pioneer of 'Satyagraha'.",
+      "quote": "In a gentle way, you can shake the world.",
+      "question": { "q": "In which city was Gandhi born?", "a": "Porbandar, Gujarat" }
+    },
+    {
+      "name": "Bhagat Singh",
+      "bio": "Revolutionary socialist hero. Founded Hindustan Socialist Republican Association. Martyred at age 23.",
+      "quote": "Revolution is an inalienable right of mankind.",
+      "question": { "q": "When was Bhagat Singh executed?", "a": "March 23, 1931" }
+    },
+    {
+      "name": "Subhas Chandra Bose",
+      "bio": "Known as Netaji. Founded Azad Hind Fauj. Called for 'Chalo Delhi'. Disappeared in 1945.",
+      "quote": "Give me blood, and I shall give you freedom!",
+      "question": { "q": "Which party did Netaji form after leaving INC?", "a": "All India Forward Bloc" }
+    },
+    {
+      "name": "Dr. B. R. Ambedkar",
+      "bio": "Architect of the Constitution. Champion of Dalit rights. First Law Minister of independent India.",
+      "quote": "I like the religion that teaches liberty, equality and fraternity.",
+      "question": { "q": "Which award was posthumously given to Ambedkar in 1990?", "a": "Bharat Ratna" }
+    }
+  ],
+  "quotes": [
+    { "text": "Success is not a destination, it's a journey.", "by": "UPSC Aspirant" },
+    { "text": "Hard work beats talent when talent doesn't work hard.", "by": "Tim Notke" },
+    { "text": "Don't let yesterday take up too much of today.", "by": "Will Rogers" },
+    { "text": "Consistency is what transforms average into excellence.", "by": "Unknown" },
+    { "text": "Your only limit is your mind.", "by": "Motivational Source" },
+    { "text": "Discipline is the bridge between goals and accomplishment.", "by": "Jim Rohn" },
+    { "text": "Arise, awake, and stop not until the goal is reached.", "by": "Swami Vivekananda" },
+    { "text": "Difficulties in your life do not come to destroy you, but to help you realize your hidden potential.", "by": "A.P.J. Abdul Kalam" },
+    { "text": "The expert in anything was once a beginner.", "by": "Helen Hayes" },
+    { "text": "Focus on the process, not just the outcome.", "by": "UPSC Mentor" }
+  ],
+  "currentAffairs": [
+    { "title": "Bhartiya Nyaya Sanhita", "category": "Polity", "explanation": "New criminal law replacing the IPC, focusing on justice rather than punishment." },
+    { "title": "Digital Rupee (e₹)", "category": "Economy", "explanation": "RBI's Central Bank Digital Currency (CBDC) aiming to reduce physical cash usage." },
+    { "title": "LiFE Movement", "category": "Environment", "explanation": "Lifestyle for Environment launched by India to encourage sustainable consumption." },
+    { "title": "Web 3.0", "category": "Science", "explanation": "Decentralized internet built on blockchain technology, giving users data ownership." },
+    { "title": "Mission Divyastra", "category": "Science", "explanation": "First flight test of Agni-5 missile with MIRV technology by DRDO." }
+  ]
+}
