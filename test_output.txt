@@ -1,0 +1,88 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------< com.revision:smart-revision-scheduler >----------------
+[INFO] Building smart-revision-scheduler 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ smart-revision-scheduler ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ smart-revision-scheduler ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ smart-revision-scheduler ---
+[INFO] skip non existing resourceDirectory C:\Users\saranyadheve\OneDrive\Desktop\smart-revision-scheduler\smart-revision-scheduler\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ smart-revision-scheduler ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- surefire:3.1.2:test (default-test) @ smart-revision-scheduler ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.revision.smart_revision_scheduler.SmartRevisionSchedulerApplicationTests
+01:34:56.526 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.revision.smart_revision_scheduler.SmartRevisionSchedulerApplicationTests]: SmartRevisionSchedulerApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+01:34:56.674 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.revision.smart_revision_scheduler.SmartRevisionSchedulerApplication for test class com.revision.smart_revision_scheduler.SmartRevisionSchedulerApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.2)
+
+2026-03-08T01:34:57.100+05:30  INFO 5248 --- [smart-revision-scheduler] [           main] s.SmartRevisionSchedulerApplicationTests : Starting SmartRevisionSchedulerApplicationTests using Java 21.0.9 with PID 5248 (started by saranyadheve in C:\Users\saranyadheve\OneDrive\Desktop\smart-revision-scheduler\smart-revision-scheduler)
+2026-03-08T01:34:57.101+05:30  INFO 5248 --- [smart-revision-scheduler] [           main] s.SmartRevisionSchedulerApplicationTests : No active profile set, falling back to 1 default profile: "default"
+2026-03-08T01:34:57.693+05:30  INFO 5248 --- [smart-revision-scheduler] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-08T01:34:57.742+05:30  INFO 5248 --- [smart-revision-scheduler] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 39 ms. Found 3 JPA repository interfaces.
+2026-03-08T01:34:58.193+05:30  INFO 5248 --- [smart-revision-scheduler] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-03-08T01:34:58.241+05:30  INFO 5248 --- [smart-revision-scheduler] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.1.Final
+2026-03-08T01:34:58.280+05:30  INFO 5248 --- [smart-revision-scheduler] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-03-08T01:34:58.489+05:30  INFO 5248 --- [smart-revision-scheduler] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-08T01:34:58.519+05:30  INFO 5248 --- [smart-revision-scheduler] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-03-08T01:34:58.773+05:30  INFO 5248 --- [smart-revision-scheduler] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4fd7b79
+2026-03-08T01:34:58.774+05:30  INFO 5248 --- [smart-revision-scheduler] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-03-08T01:34:59.583+05:30  INFO 5248 --- [smart-revision-scheduler] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: create table revision_session (id bigint not null auto_increment, difficulty_level integer not null, duration_minutes integer not null, studied_date date, topic_name varchar(255), user_id bigint, primary key (id)) engine=InnoDB
+Hibernate: create table schedule (id bigint not null auto_increment, fatigue_score float(53) not null, revision_date date, revision_session_id bigint, primary key (id)) engine=InnoDB
+Hibernate: create table users (id bigint not null auto_increment, created_at datetime(6), email varchar(255) not null, enabled bit not null, password varchar(255) not null, role varchar(255) not null, updated_at datetime(6), username varchar(50) not null, primary key (id)) engine=InnoDB
+Hibernate: alter table schedule drop index UK_7jikajam1g5rgb9dpksc1a3ka
+Hibernate: alter table schedule add constraint UK_7jikajam1g5rgb9dpksc1a3ka unique (revision_session_id)
+Hibernate: alter table users drop index UK_6dotkott2kjsp8vw4d0m25fb7
+Hibernate: alter table users add constraint UK_6dotkott2kjsp8vw4d0m25fb7 unique (email)
+Hibernate: alter table users drop index UK_r43af9ap4edm43mmtq01oddj6
+Hibernate: alter table users add constraint UK_r43af9ap4edm43mmtq01oddj6 unique (username)
+Hibernate: alter table revision_session add constraint FKa2sktl03nn2f5ad3xk3myhie2 foreign key (user_id) references users (id)
+Hibernate: alter table schedule add constraint FKfuje0n7l2jttfl0b3bftbqwqp foreign key (revision_session_id) references revision_session (id)
+2026-03-08T01:34:59.799+05:30  INFO 5248 --- [smart-revision-scheduler] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-08T01:35:00.218+05:30  WARN 5248 --- [smart-revision-scheduler] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-08T01:35:00.256+05:30  WARN 5248 --- [smart-revision-scheduler] [           main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 88e8b787-28ad-40c4-8967-41ecccb24af3
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-03-08T01:35:00.580+05:30  INFO 5248 --- [smart-revision-scheduler] [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@34c2e03d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@17e4beda, org.springframework.security.web.context.SecurityContextHolderFilter@508abc74, org.springframework.security.web.header.HeaderWriterFilter@30d2f9ea, org.springframework.web.filter.CorsFilter@1be4f05c, org.springframework.security.web.authentication.logout.LogoutFilter@5d1eb214, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@386ea60f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@c7b100b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4202bfe8, org.springframework.security.web.access.ExceptionTranslationFilter@5687ade6, org.springframework.security.web.access.intercept.AuthorizationFilter@408980aa]
+2026-03-08T01:35:00.967+05:30  INFO 5248 --- [smart-revision-scheduler] [           main] s.SmartRevisionSchedulerApplicationTests : Started SmartRevisionSchedulerApplicationTests in 4.125 seconds (process running for 5.041)
+Java HotSpot(TM) 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+WARNING: A Java agent has been loaded dynamically (C:\Users\saranyadheve\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.11\byte-buddy-agent-1.14.11.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.022 s -- in com.revision.smart_revision_scheduler.SmartRevisionSchedulerApplicationTests
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  6.900 s
+[INFO] Finished at: 2026-03-08T01:35:01+05:30
+[INFO] ------------------------------------------------------------------------
