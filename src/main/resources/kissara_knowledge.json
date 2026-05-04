@@ -1,0 +1,72 @@
+{
+  "upsc": [
+    {
+      "question": "How many stages are there in UPSC?",
+      "answer": "UPSC Civil Services Examination consists of 3 stages:\n1. Preliminary Examination (Objective type)\n2. Main Examination (Written type)\n3. Personality Test (Interview)"
+    },
+    {
+      "question": "What are the subjects in UPSC Prelims?",
+      "answer": "UPSC Prelims has two papers:\n1. General Studies Paper I (History, Geography, Polity, Economy, Environment, Science, Current Affairs)\n2. CSAT (General Studies Paper II - Aptitude, Reasoning, English)"
+    },
+    {
+      "question": "What is the age limit for UPSC?",
+      "answer": "For General category, the age limit is 21 to 32 years. There are age relaxations for OBC (up to 35), SC/ST (up to 37), and other categories as per government norms."
+    },
+    {
+        "question": "What is the syllabus for Ethics (GS-4)?",
+        "answer": "The UPSC GS-4 syllabus covers Ethics, Integrity, and Aptitude. It includes topics like Human Values, Attitude, Emotional Intelligence, Public Service Values, and Case Studies."
+    },
+    {
+        "question": "How to choose an optional subject?",
+        "answer": "Choose an optional subject based on:\n1. Your educational background\n2. Level of interest in the subject\n3. Availability of study material and guidance\n4. Previous year trends (scoring potential)"
+    }
+  ],
+  "tnpsc": [
+    {
+      "question": "What is the qualification for TNPSC Group 1?",
+      "answer": "A candidate must hold a degree from any recognized University or Institution. The minimum age limit is 21 years."
+    },
+    {
+      "question": "Are there any Tamil language requirements for TNPSC?",
+      "answer": "Yes, TNPSC has implemented a compulsory Tamil Language eligibility test. You must score minimum passing marks in the Tamil paper to be considered for evaluation of other papers."
+    },
+    {
+      "question": "What are the stages of Group 2 exam?",
+      "answer": "TNPSC Group 2 follows a 3-stage process for Interview posts (Prelims, Mains, Interview) and a 2-stage process for Non-Interview posts (Prelims, Mains)."
+    }
+  ],
+  "gate": [
+    {
+      "question": "What is the validity of a GATE score?",
+      "answer": "A GATE score is valid for 3 years from the date of announcement of results."
+    },
+    {
+      "question": "Which subjects are common to all GATE papers?",
+      "answer": "General Aptitude and Engineering Mathematics (for most branches) are core components across different GATE papers."
+    },
+    {
+      "question": "How to prepare for GATE Computer Science?",
+      "answer": "Focus on core subjects: Data Structures, Algorithms, OS, DBMS, Digital Logic, TOC, Compiler Design, and Discrete Mathematics. Practice PYQs extensively."
+    }
+  ],
+  "it": [
+    {
+      "question": "What is the difference between Array and LinkedList?",
+      "answer": "Arrays are stored in contiguous memory with O(1) random access but O(n) insertion/deletion. LinkedLists use references/pointers, allowing O(1) insertion at head, but O(n) access time."
+    },
+    {
+      "question": "What are the 4 pillars of OOPs?",
+      "answer": "The four pillars of Object-Oriented Programming are:\n1. Encapsulation (data hiding)\n2. Inheritance (reusability)\n3. Polymorphism (multiple forms)\n4. Abstraction (simplifying complexity)"
+    },
+    {
+      "question": "Explain 'this' keyword in Java.",
+      "answer": "In Java, 'this' is a reference variable that refers to the current object. It's used to distinguish class fields from local variables, invoke current class constructors, or pass the current object as an argument."
+    }
+  ],
+  "suggestions": {
+    "upsc": ["UPSC stages", "Optional subjects", "Prelims syllabus", "Ethics paper", "Current affairs prep"],
+    "tnpsc": ["Group 1 eligibility", "Tamil eligibility test", "Group 2 updates", "Unit 8 and 9 topics"],
+    "gate": ["GATE eligibility", "Maths syllabus", "Best books for CSE", "PSU recruitment via GATE"],
+    "it": ["Sorting algorithms", "OOPs concepts", "System Design basics", "HR interview tips"]
+  }
+}

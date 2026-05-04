@@ -8,7 +8,7 @@ const NotFound = () => {
     const navigate = useNavigate();
 
     return (
-        <div className="relative w-full min-h-screen pt-32 px-6 flex flex-col items-center justify-center bg-slate-50 dark:bg-slate-950 transition-colors overflow-hidden">
+        <div className="relative w-full min-h-screen pt-32 px-6 flex flex-col items-center justify-center bg-slate-50 dark:bg-slate-950 transition-colors overflow-x-hidden">
             <VisualEngine />
             
             <motion.div 

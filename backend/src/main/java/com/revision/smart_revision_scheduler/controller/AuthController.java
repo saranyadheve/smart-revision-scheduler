@@ -52,8 +52,9 @@ public class AuthController {
             
             if (!loggedInUser.isEmailVerified()) {
                 java.util.Map<String, String> error = new java.util.HashMap<>();
-                error.put("message", "Please verify your email address before logging in. Check your inbox for the verification link.");
-                return ResponseEntity.status(401).body(error);
+                error.put("message", "ACCOUNT_UNVERIFIED");
+                error.put("email", loggedInUser.getEmail());
+                return ResponseEntity.status(403).body(error);
             }
 
             try {
@@ -66,7 +67,7 @@ public class AuthController {
                 return ResponseEntity.status(401).body(error);
             }
 
-            final UserDetails userDetails = userDetailsService.loadUserByUsername(user.getUsername());
+            final UserDetails userDetails = userDetailsService.loadUserByUsername(identifier);
             final String jwt = jwtUtils.generateToken(userDetails);
             
             loggedInUser.setLastLogin(LocalDateTime.now());
@@ -94,6 +95,37 @@ public class AuthController {
         java.util.Map<String, String> error = new java.util.HashMap<>();
         error.put("message", "User not found.");
         return ResponseEntity.status(401).body(error);
+    }
+
+    @PostMapping("/verify-passcode")
+    public ResponseEntity<?> verifyPasscode(@RequestBody java.util.Map<String, String> request) {
+        try {
+            String email = request.get("email");
+            String passcode = request.get("passcode");
+            userService.verifyPasscode(email, passcode);
+            java.util.Map<String, String> response = new java.util.HashMap<>();
+            response.put("message", "Successfully verified! You can now log in.");
+            return ResponseEntity.ok(response);
+        } catch (Exception e) {
+            java.util.Map<String, String> error = new java.util.HashMap<>();
+            error.put("message", e.getMessage());
+            return ResponseEntity.badRequest().body(error);
+        }
+    }
+
+    @PostMapping("/resend-passcode")
+    public ResponseEntity<?> resendPasscode(@RequestBody java.util.Map<String, String> request) {
+        try {
+            String email = request.get("email");
+            userService.resendPasscode(email);
+            java.util.Map<String, String> response = new java.util.HashMap<>();
+            response.put("message", "New passcode sent to your email.");
+            return ResponseEntity.ok(response);
+        } catch (Exception e) {
+            java.util.Map<String, String> error = new java.util.HashMap<>();
+            error.put("message", e.getMessage());
+            return ResponseEntity.badRequest().body(error);
+        }
     }
 
     @GetMapping("/verify")

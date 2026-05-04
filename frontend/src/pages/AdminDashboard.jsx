@@ -110,7 +110,7 @@ const AdminDashboard = () => {
         </header>
 
         {/* Tab Navigation */}
-        <div className="flex gap-4 mb-10 overflow-x-auto pb-4 scrollbar-hide">
+        <div className="flex gap-4 mb-10 overflow-x-auto pb-4">
             <TabButton active={activeTab === 'resources'} onClick={() => setActiveTab('resources')} icon={Database} label="Knowledge Resources" />
             <TabButton active={activeTab === 'users'} onClick={() => setActiveTab('users')} icon={Users} label="Scholar Management" />
             <TabButton active={activeTab === 'analytics'} onClick={() => setActiveTab('analytics')} icon={BarChart3} label="Neural Analytics" />

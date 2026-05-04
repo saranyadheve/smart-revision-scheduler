@@ -1,80 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #0f172a;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-content: center;
-  min-width: 320px;
-  min-height: 100vh;
-  overflow: hidden;
-}
-
-#root {
-  width: 100%;
+  --bg-sage: #F4F7F5;
+  --primary-green: #A3B18A;
+  --secondary-green: #588157;
+  --accent-beige: #DAD7CD;
+  --text-primary: #2F3E46;
+  --text-secondary: #6B7A7A;
 }
 
 @layer base {
+  html {
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-50 transition-colors duration-500;
+    @apply bg-[#F4F7F5] text-[#2F3E46] min-h-screen;
+    line-height: 1.5;
+    font-size: 15px;
   }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold text-[#2F3E46] tracking-tight;
+    font-family: 'Poppins', sans-serif;
+    text-transform: capitalize;
+  }
+
+  h1 { font-size: 24px; }
+  h2 { font-size: 20px; }
+  h3 { font-size: 18px; }
   
+  p, span, div, button {
+    font-family: 'Inter', sans-serif;
+  }
+
   * {
-    @apply transition-colors duration-300;
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  input, textarea, select {
+    @apply text-[#2F3E46] placeholder:text-[#DAD7CD];
+    font-family: 'Inter', sans-serif;
   }
 }
 
+/* Core Components */
 .glass {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+  @apply bg-white border border-white/20 shadow-[0_4px_12px_rgba(0,0,0,0.05)] rounded-[16px];
+  backdrop-filter: blur(12px);
 }
 
-.dark .glass {
-  background: rgba(15, 23, 42, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+.card {
+  @apply bg-white p-5 rounded-[16px] shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-transparent hover:border-[#A3B18A]/30 hover:-translate-y-1 transition-all;
 }
 
-.glow {
-  box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+.btn-primary {
+  @apply bg-[#A3B18A] text-white px-5 py-2.5 rounded-[10px] font-medium hover:bg-[#588157] transition-all active:scale-95 flex items-center justify-center gap-2;
 }
 
-/* Custom keyframes for extra smoothness if needed */
-@keyframes float {
-  0%   { transform: translateY(0px) rotate(0deg); }
-  50%  { transform: translateY(-30px) rotate(8deg); }
-  100% { transform: translateY(0px) rotate(0deg); }
+.btn-secondary {
+  @apply bg-[#DAD7CD] text-[#2F3E46] px-5 py-2.5 rounded-[10px] font-medium hover:opacity-90 transition-all active:scale-95 flex items-center justify-center gap-2;
 }
 
-.animate-float {
-  animation: float 8s ease-in-out infinite;
+.btn-outline {
+  @apply border border-[#A3B18A] text-[#A3B18A] px-5 py-2.5 rounded-[10px] font-medium hover:bg-[#A3B18A] hover:text-white transition-all active:scale-95 flex items-center justify-center gap-2 bg-transparent;
 }
 
-/* ── CUSTOM SCROLLBAR ────────────────────────────────────────────────────── */
-
-/* Webkit browsers (Chrome, Safari, Edge) */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 12px;
-  height: 12px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -82,35 +82,23 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #8b5cf6 0%, #6366f1 100%);
-  border-radius: 6px;
-  border: 2px solid transparent;
-  background-clip: padding-box;
-  transition: background 0.3s ease;
+  @apply bg-[#DAD7CD] rounded-full;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #a78bfa 0%, #818cf8 100%);
-  background-clip: padding-box;
+  @apply bg-[#A3B18A];
 }
 
-/* Dark mode scrollbar */
-.dark ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #8b5cf6 0%, #6366f1 100%);
-  background-clip: padding-box;
+/* Specific Transitions */
+.hover-lift {
+  @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
 }
 
-.dark ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #a78bfa 0%, #818cf8 100%);
-  background-clip: padding-box;
+/* Dark mode fallback adjustment (if used) */
+.dark body {
+  @apply bg-slate-950 text-slate-100;
 }
 
-/* Firefox scrollbar */
-* {
-  scrollbar-color: #8b5cf6 transparent;
-  scrollbar-width: thin;
-}
-
-.dark {
-  scrollbar-color: #8b5cf6 transparent;
+.dark .glass, .dark .card {
+  @apply bg-white/5 border-white/10;
 }

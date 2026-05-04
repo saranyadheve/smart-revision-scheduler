@@ -1,39 +1,36 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { Target, ShieldCheck, Brain, ChevronRight } from 'lucide-react';
-import VisualEngine from '../components/VisualEngine';
+import { Target, ShieldCheck, Brain, Code, ChevronRight, BookOpen } from 'lucide-react';
 
-const CourseCard = ({ title, description, icon: Icon, path, delay }) => {
+const CourseListItem = ({ title, description, icon: Icon, path, index }) => {
   const navigate = useNavigate();
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay }}
-      whileHover={{ scale: 1.02 }}
+      initial={{ opacity: 0, x: -20 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ delay: index * 0.1 }}
       onClick={() => navigate(path)}
-      className="glass p-10 rounded-[3rem] border-slate-200/20 dark:border-white/5 bg-white/40 dark:bg-white/5 backdrop-blur-3xl group cursor-pointer border-2 border-transparent hover:border-primary/20 transition-all flex flex-col justify-between h-full shadow-2xl relative overflow-hidden"
+      className="bg-white p-5 rounded-[16px] shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-transparent hover:border-[#A3B18A]/30 transition-all cursor-pointer flex flex-col md:flex-row items-center justify-between gap-6 group mb-4"
     >
-      <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-primary/10 to-transparent blur-[80px] -mr-10 -mt-10 opacity-50 group-hover:opacity-100 transition-opacity" />
-      
-      <div>
-        <div className="w-16 h-16 rounded-[1.8rem] flex items-center justify-center text-white bg-gradient-to-br from-primary to-indigo-500 shadow-xl mb-8 group-hover:scale-110 transition-transform">
-          <Icon className="w-8 h-8" />
+      <div className="flex items-center gap-6 flex-1">
+        <div className="w-12 h-12 rounded-[12px] bg-[#F4F7F5] flex items-center justify-center text-[#A3B18A] group-hover:bg-[#A3B18A] group-hover:text-white transition-all">
+          <Icon size={24} />
         </div>
-        <h3 className="text-3xl font-black italic uppercase tracking-tighter text-slate-800 dark:text-white mb-4">
-          {title}
-        </h3>
-        <p className="text-slate-500 dark:text-slate-400 font-medium leading-relaxed">
-          {description}
-        </p>
+        <div>
+          <h3 className="text-[18px] font-semibold text-[#2F3E46] font-poppins">{title}</h3>
+          <p className="text-[14px] text-[#6B7A7A] mt-1 leading-relaxed max-w-2xl">{description}</p>
+        </div>
       </div>
 
-      <div className="mt-10 flex items-center justify-between">
-        <span className="text-[10px] font-black uppercase tracking-[0.4em] text-primary">Explore Module</span>
-        <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
-          <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+      <div className="flex items-center gap-4">
+        <div className="hidden md:flex flex-col items-end text-right mr-4">
+          <span className="text-[10px] font-semibold text-[#A3B18A] uppercase tracking-widest">Available Now</span>
+          <span className="text-[11px] text-[#6B7A7A]">Self-paced learning</span>
+        </div>
+        <div className="w-10 h-10 rounded-full bg-[#F4F7F5] flex items-center justify-center text-[#6B7A7A] group-hover:bg-[#A3B18A] group-hover:text-white transition-all">
+          <ChevronRight size={20} className="group-hover:translate-x-0.5 transition-transform" />
         </div>
       </div>
     </motion.div>
@@ -44,52 +41,54 @@ const Courses = () => {
   const courses = [
     {
       title: 'UPSC Prime',
-      description: 'Master the Civil Services Examination with strategic deep-dives into History, Polity, Geography, and Economy.',
+      description: 'The ultimate guide for Civil Services. Detailed modules on History, Geography, Polity, and Economy with previous year question analysis.',
       icon: Target,
       path: '/courses/upsc'
     },
     {
-      title: 'IPS Core',
-      description: 'The blueprint for leadership and internal security. Master Criminal Law, Ethics, and Physical Readiness.',
-      icon: ShieldCheck,
-      path: '/courses/ips'
+      title: 'TNPSC Focus',
+      description: 'Specialized curriculum for Tamil Nadu Public Service Commission exams, focusing on state history, administration, and language.',
+      icon: BookOpen,
+      path: '/courses/tnpsc'
     },
     {
-      title: 'Aptitude Mastery',
-      description: 'Sharpen your quantitative, logical, and verbal reasoning skills. The ultimate toolkit for clearing preliminary hurdles.',
+      title: 'GATE 2025',
+      description: 'Deep technical dives into Computer Science and Engineering. Master Algorithms, Data Structures, and Core OS concepts.',
+      icon: Code,
+      path: '/courses/gate'
+    },
+    {
+      title: 'IT Interview Prep',
+      description: 'Prepare for top tech companies with focused sessions on Problem Solving, System Design, and Behavioral rounds.',
       icon: Brain,
-      path: '/courses/aptitude'
+      path: '/courses/interview'
     }
   ];
 
   return (
-    <div className="relative w-full min-h-screen pt-24 pb-12 px-6 md:px-12 bg-slate-50 dark:bg-slate-950 transition-colors overflow-hidden">
-      <VisualEngine />
-      
-      <header className="max-w-7xl mx-auto text-center relative z-10 mb-20">
-        <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            className="inline-block px-10 py-2.5 rounded-full bg-primary/10 border border-primary/20 text-primary font-black uppercase tracking-[0.5em] text-[10px] mb-6 shadow-2xl shadow-primary/5"
-        >
-            Curriculum Hub
-        </motion.div>
-        <motion.h1 
-            initial={{ y: 30, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            className="text-6xl md:text-8xl font-black text-slate-800 dark:text-white italic tracking-tighter uppercase leading-none mb-6"
-        >
-            Select Your <span className="text-primary italic">Course.</span>
-        </motion.h1>
-        <p className="text-slate-500 font-bold uppercase tracking-[0.5em] text-[10px]">
-            Target your specific career goals with our highly optimized learning engines.
-        </p>
-      </header>
+    <div className="p-6 md:p-10 pt-24 min-h-screen bg-[#F4F7F5]">
+      <div className="max-w-5xl mx-auto">
+        <header className="mb-12">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="inline-block px-4 py-1 rounded-full bg-[#A3B18A]/10 text-[#588157] text-[11px] font-semibold uppercase tracking-widest mb-4"
+          >
+            Syllabus Hub
+          </motion.div>
+          <h1 className="text-[32px] font-semibold text-[#2F3E46] font-poppins">Choose Your <span className="text-[#A3B18A]">Path.</span></h1>
+          <p className="text-[#6B7A7A] mt-2 max-w-2xl">Select a course to view detailed syllabus, practice questions, and generate your personalized study plan.</p>
+        </header>
 
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 relative z-10">
-        {courses.map((course, index) => (
-          <CourseCard key={course.path} {...course} delay={index * 0.15} />
-        ))}
+        <div className="space-y-4">
+          {courses.map((course, index) => (
+            <CourseListItem key={course.path} {...course} index={index} />
+          ))}
+        </div>
+
+        <footer className="mt-16 pt-8 border-t border-[#DAD7CD]/30 text-center">
+          <p className="text-[13px] text-[#6B7A7A]">Can't find what you're looking for? <span className="text-[#A3B18A] cursor-pointer hover:underline">Contact Support</span></p>
+        </footer>
       </div>
     </div>
   );

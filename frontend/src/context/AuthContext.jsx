@@ -10,8 +10,20 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const savedUser = localStorage.getItem('sr_user');
     const token = localStorage.getItem('sr_token');
+    
+    // If we're on a fresh start or auth pages, we should verify or clear stale state
+    const isAuthPage = window.location.hash.includes('/login') || window.location.hash.includes('/signup');
+    
     if (savedUser && token) {
-      setUser(JSON.parse(savedUser));
+      if (isAuthPage) {
+        // Clear stale session if user manually navigates to login/signup
+        // to prevent UI confusion like seeing "PRAVEEN" while trying to create a new account
+        localStorage.removeItem('sr_token');
+        localStorage.removeItem('sr_user');
+        setUser(null);
+      } else {
+        setUser(JSON.parse(savedUser));
+      }
     }
     setLoading(false);
   }, []);
@@ -44,7 +56,15 @@ export const AuthProvider = ({ children }) => {
 
   const signup = async (userData) => {
     try {
-      await apiRegister(userData);
+      const response = await apiRegister(userData);
+      // Automatically login after successful signup if response contains token
+      if (response.data && response.data.token) {
+        const { token, username, role, id } = response.data;
+        const authData = { id, username, role };
+        localStorage.setItem('sr_token', token);
+        localStorage.setItem('sr_user', JSON.stringify(authData));
+        setUser(authData);
+      }
       return { success: true };
     } catch (error) {
       console.error("AuthContext Signup error:", error);

@@ -9,4 +9,5 @@ import java.util.List;
 public interface ScheduleRepository extends JpaRepository<Schedule, Long> {
     List<Schedule> findByRevisionDateBeforeAndReminderSentFalse(LocalDate date);
     List<Schedule> findByRevisionDateAndReminderSentFalse(LocalDate date);
+    java.util.Optional<Schedule> findTopByRevisionSessionUserOrderByIdDesc(com.revision.smart_revision_scheduler.model.User user);
 }

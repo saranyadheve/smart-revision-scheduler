@@ -3,22 +3,70 @@
     "system-design": {
       "title": "System Design",
       "explanation": "Scalable architecture for millions of users.",
-      "concepts": ["Load Balancing", "Microservices", "Horizontal vs Vertical Scaling", "Database Sharding", "Caching with Redis"]
+      "masterUrl": "https://www.geeksforgeeks.org/system-design-tutorial/",
+      "concepts": [
+        { "name": "Load Balancing", "url": "https://www.geeksforgeeks.org/what-is-load-balancing/" },
+        { "name": "Microservices", "url": "https://microservices.io/patterns/microservices.html" },
+        { "name": "Horizontal vs Vertical Scaling", "url": "https://www.section.io/engineering-education/horizontal-vs-vertical-scaling/" },
+        { "name": "Database Sharding", "url": "https://www.digitalocean.com/community/tutorials/understanding-database-sharding" },
+        { "name": "Caching with Redis", "url": "https://redis.io/docs/manual/client-side-caching/" }
+      ],
+      "externalLinks": [
+        { "label": "System Design Primer", "url": "https://github.com/donnemartin/system-design-primer" },
+        { "label": "ByteByteGo YouTube", "url": "https://www.youtube.com/@ByteByteGo" },
+        { "label": "GeeksforGeeks Tutorial", "url": "https://www.geeksforgeeks.org/system-design-tutorial/" }
+      ]
     },
     "dsa-pro": {
       "title": "Coding Strategy",
       "explanation": "Algorithmic patterns for competitive placement.",
-      "concepts": ["Sliding Window", "Two Pointers", "Dynamic Programming", "Recursion & Backtracking", "Sorting & Map Logic"]
+      "masterUrl": "https://www.techinterviewhandbook.org/coding-interview-study-plan/",
+      "concepts": [
+        { "name": "Sliding Window", "url": "https://algodaily.com/lessons/sliding-window-technique" },
+        { "name": "Two Pointers", "url": "https://leetcode.com/discuss/study-guide/1688903/Solved-all-two-pointers-problems-in-LeetCode" },
+        { "name": "Dynamic Programming", "url": "https://www.geeksforgeeks.org/dynamic-programming/" },
+        { "name": "Recursion & Backtracking", "url": "https://www.geeksforgeeks.org/backtracking-algorithms/" },
+        { "name": "Sorting & Map Logic", "url": "https://www.geeksforgeeks.org/sorting-algorithms/" }
+      ],
+      "externalLinks": [
+        { "label": "LeetCode Patterns", "url": "https://leetcode.com/discuss/general-discussion/458695/dynamic-programming-patterns" },
+        { "label": "NeetCode Practice", "url": "https://neetcode.io/practice" },
+        { "label": "Maths/Logic Hub", "url": "https://www.techinterviewhandbook.org/coding-interview-study-plan/" }
+      ]
     },
     "cloud-ops": {
       "title": "Cloud & Devops",
       "explanation": "The infrastructure of modern tech deployments.",
-      "concepts": ["AWS/Azure Services", "Docker & Containers", "Kubernetes Orchestration", "CI/CD Pipelines", "Serverless Architecture"]
+      "masterUrl": "https://roadmap.sh/devops",
+      "concepts": [
+        { "name": "AWS/Azure Services", "url": "https://aws.amazon.com/what-is-cloud-computing/" },
+        { "name": "Docker & Containers", "url": "https://www.docker.com/resources/what-container/" },
+        { "name": "Kubernetes Orchestration", "url": "https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/" },
+        { "name": "CI/CD Pipelines", "url": "https://www.redhat.com/en/topics/devops/what-is-ci-cd" },
+        { "name": "Serverless Architecture", "url": "https://aws.amazon.com/serverless/" }
+      ],
+      "externalLinks": [
+        { "label": "DevOps Roadmap", "url": "https://roadmap.sh/devops" },
+        { "label": "AWS Training Hub", "url": "https://explore.skillbuilder.aws/learn" },
+        { "label": "Azure Learning", "url": "https://learn.microsoft.com/en-us/training/azure/" }
+      ]
     },
     "behavioral": {
       "title": "Behavioral Intel",
       "explanation": "Soft skills and cultural alignment for Big Tech.",
-      "concepts": ["STAR Method", "Leadership Principles", "Conflict Resolution", "Project Deep Dive", "System Ownership"]
+      "masterUrl": "https://www.techinterviewhandbook.org/behavioral-interview-questions/",
+      "concepts": [
+        { "name": "STAR Method", "url": "https://www.themuse.com/advice/star-method-interview-questions" },
+        { "name": "Leadership Principles", "url": "https://www.amazon.jobs/content/en/our-workplace/leadership-principles" },
+        { "name": "Conflict Resolution", "url": "https://www.themuse.com/advice/conflict-resolution-interview-questions-answers" },
+        { "name": "Project Deep Dive", "url": "https://www.techinterviewhandbook.org/behavioral-interview-questions/#project-deep-dive" },
+        { "name": "System Ownership", "url": "https://www.atlassian.com/incident-management/on-call/service-ownership" }
+      ],
+      "externalLinks": [
+        { "label": "STAR Method Guide", "url": "https://www.themuse.com/advice/star-method-interview-questions" },
+        { "label": "Amazon LP Guide", "url": "https://www.amazon.jobs/content/en/our-workplace/leadership-principles" },
+        { "label": "Behavioral Bank", "url": "https://www.techinterviewhandbook.org/behavioral-interview-questions/" }
+      ]
     }
   },
   "mcqs": [

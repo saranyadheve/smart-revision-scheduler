@@ -8,10 +8,16 @@ export default {
   theme: {
     extend: {
       colors: {
+        sage: "#F4F7F5",
+        "primary-green": "#A3B18A",
+        "secondary-green": "#588157",
+        "accent-beige": "#DAD7CD",
+        "text-primary": "#2F3E46",
+        "text-secondary": "#6B7A7A",
         primary: {
-          DEFAULT: "#8b5cf6",
-          dark: "#7c3aed",
-          light: "#a78bfa",
+          DEFAULT: "#A3B18A",
+          dark: "#588157",
+          light: "#EAF0EA",
         },
         slate: {
           950: "#020617",

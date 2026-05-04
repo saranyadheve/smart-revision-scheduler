@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { Mail, Lock, User, UserPlus, ArrowRight, Sparkles } from 'lucide-react';
+import { Mail, Lock, User, UserPlus, ArrowRight, Sparkles, AlertCircle, CheckCircle2 } from 'lucide-react';
 import VisualEngine from '../components/VisualEngine';
 
 const Signup = () => {
@@ -22,14 +22,12 @@ const Signup = () => {
     if (!email.trim()) {
       newErrors.email = 'Email is required';
     } else if (!/\S+@\S+\.\S+/.test(email)) {
-      newErrors.email = 'Please enter a valid email address';
+      newErrors.email = 'Invalid email address';
     }
     if (!password) {
       newErrors.password = 'Password is required';
     } else if (password.length < 8) {
-      newErrors.password = 'Password must be at least 8 characters';
-    } else if (!/\d/.test(password)) {
-      newErrors.password = 'Password must contain at least one number';
+      newErrors.password = 'Min 8 characters required';
     }
     return newErrors;
   };
@@ -51,151 +49,136 @@ const Signup = () => {
       if (result.success) {
         setIsSuccess(true);
       } else {
-        setServerError(result.message || 'Registration failed. Please try again.');
+        setServerError(result.message || 'Registration failed.');
         setIsLoading(false);
       }
     } catch (error) {
-      setServerError('A network error occurred. Please try again.');
+      setServerError('A network error occurred.');
       setIsLoading(false);
     }
   };
 
   return (
-    <div className="relative w-full min-h-screen flex items-center justify-center p-4">
+    <div className="relative w-full min-h-screen flex items-center justify-center p-6 bg-[#F4F7F5]">
       <VisualEngine />
 
       <motion.div
-        initial={{ opacity: 0, y: 30, scale: 0.95 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="w-full max-w-lg bg-white/90 dark:bg-slate-900/90 backdrop-blur-2xl rounded-[2.5rem] p-10 border border-slate-200 dark:border-white/10 shadow-2xl relative z-10 overflow-hidden"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="w-full max-w-[480px] bg-white p-10 md:p-12 rounded-[32px] border border-[#DAD7CD]/30 shadow-[0_8px_32px_rgba(0,0,0,0.04)] relative z-10"
       >
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/10 rounded-full blur-[80px] pointer-events-none" />
-        
-        <div className="text-center mb-8">
-          <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-6 border border-primary/20 shadow-xl shadow-primary/5">
-            <UserPlus className="w-8 h-8 text-primary" />
+        <div className="text-center mb-10">
+          <div className="w-14 h-14 bg-[#A3B18A]/10 rounded-2xl flex items-center justify-center mx-auto mb-6 text-[#A3B18A] border border-[#A3B18A]/10">
+            <UserPlus size={28} />
           </div>
-          <h2 className="text-3xl font-bold text-slate-900 dark:text-white tracking-tight mb-2 italic">Begin Your Mastery</h2>
-          <p className="text-slate-500 dark:text-slate-400 font-light max-w-xs mx-auto text-sm leading-relaxed italic">Join a community of focused scholars and unlock your true potential with AI-driven revision.</p>
+          <h2 className="text-[28px] font-semibold text-[#2F3E46] font-poppins tracking-tight mb-2">Begin Your Mastery</h2>
+          <p className="text-[#6B7A7A] text-[14px] font-medium">Join a focused community of scholars.</p>
         </div>
 
-        {isSuccess ? (
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="text-center py-8"
-          >
-            <div className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-6 border border-green-500/20 shadow-xl shadow-green-500/10">
-              <Mail className="w-10 h-10 text-green-500" />
-            </div>
-            <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">Registration Successful!</h2>
-            <p className="text-slate-500 dark:text-slate-400 text-sm mb-8 leading-relaxed">
-              We've sent a verification link to <span className="text-primary font-bold">{email}</span>. 
-              Please check your inbox and verify your email to activate your account.
-            </p>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => navigate('/login')}
-              className="px-8 py-3 bg-primary text-white rounded-2xl font-black uppercase tracking-widest text-xs shadow-lg shadow-primary/20"
+        <AnimatePresence mode="wait">
+          {isSuccess ? (
+            <motion.div 
+              key="success"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="text-center py-6"
             >
-              Back to Login
-            </motion.button>
-          </motion.div>
-        ) : (
-          <>
-            {serverError && (
-              <motion.div 
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="mb-6 p-4 bg-red-500/10 border border-red-500/20 rounded-2xl text-red-500 text-xs font-bold text-center uppercase tracking-widest"
+              <div className="w-20 h-20 bg-[#EAF0EA] rounded-full flex items-center justify-center mx-auto mb-6 text-[#588157]">
+                <Mail size={40} />
+              </div>
+              <h2 className="text-2xl font-semibold text-[#2F3E46] mb-4 font-poppins">Success!</h2>
+              <p className="text-[#6B7A7A] text-[14px] mb-10 leading-relaxed max-w-[300px] mx-auto">
+                Verification link sent to <span className="text-[#588157] font-semibold">{email}</span>.
+                Check your inbox to activate your account.
+              </p>
+              <button
+                onClick={() => navigate('/login')}
+                className="btn-primary w-full justify-center"
               >
-                {serverError}
-              </motion.div>
-            )}
-
-            <form onSubmit={handleSubmit} className="space-y-5">
-               <div className="space-y-1.5">
-                <label className="text-xs font-black text-slate-700 dark:text-slate-300 ml-1 uppercase tracking-widest">Username</label>
-                <div className="relative group">
-                  <User className={`absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 transition-colors ${errors.username ? 'text-red-400' : 'text-slate-400 group-focus-within:text-primary'}`} />
-                  <input
-                    type="text"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    disabled={isLoading}
-                    className={`w-full bg-slate-50 dark:bg-slate-800/50 border rounded-2xl py-4 pl-12 pr-4 text-slate-900 dark:text-white focus:outline-none transition-all placeholder:text-slate-400 text-sm font-medium ${errors.username ? 'border-red-500/50 focus:border-red-500' : 'border-slate-200 dark:border-white/10 focus:border-primary/50 focus:bg-white dark:focus:bg-slate-800'}`}
-                    placeholder="Choose a study name"
-                  />
+                Continue to Login
+              </button>
+            </motion.div>
+          ) : (
+            <motion.div key="form">
+              {serverError && (
+                <div className="mb-8 p-4 bg-red-50 border border-red-100 rounded-xl text-red-500 text-[12px] font-medium flex items-center gap-3">
+                  <AlertCircle size={18} />
+                  {serverError}
                 </div>
-                {errors.username && <p className="text-[10px] text-red-500 font-bold uppercase tracking-widest ml-1">{errors.username}</p>}
-              </div>
+              )}
 
-              <div className="space-y-1.5">
-                <label className="text-xs font-black text-slate-700 dark:text-slate-300 ml-1 uppercase tracking-widest">Email Address</label>
-                <div className="relative group">
-                  <Mail className={`absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 transition-colors ${errors.email ? 'text-red-400' : 'text-slate-400 group-focus-within:text-primary'}`} />
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    disabled={isLoading}
-                    className={`w-full bg-slate-50 dark:bg-slate-800/50 border rounded-2xl py-4 pl-12 pr-4 text-slate-900 dark:text-white focus:outline-none transition-all placeholder:text-slate-400 text-sm font-medium ${errors.email ? 'border-red-500/50 focus:border-red-500' : 'border-slate-200 dark:border-white/10 focus:border-primary/50 focus:bg-white dark:focus:bg-slate-800'}`}
-                    placeholder="your@email.com"
-                  />
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="space-y-2">
+                  <label className="text-[11px] font-semibold uppercase tracking-widest text-[#6B7A7A] ml-1">Username</label>
+                  <div className="relative group">
+                    <User className={`absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 transition-colors ${errors.username ? 'text-red-400' : 'text-[#DAD7CD] group-focus-within:text-[#A3B18A]'}`} />
+                    <input
+                      type="text"
+                      value={username}
+                      onChange={(e) => setUsername(e.target.value)}
+                      disabled={isLoading}
+                      className={`w-full bg-[#F4F7F5]/50 border rounded-xl py-3.5 pl-12 pr-4 !text-[#2F3E46] focus:outline-none transition-all placeholder:text-[#DAD7CD] text-[15px] font-medium ${errors.username ? 'border-red-300' : 'border-[#DAD7CD]/30 focus:border-[#A3B18A] focus:bg-white'}`}
+                      placeholder="Choose a study name"
+                    />
+                  </div>
+                  {errors.username && <p className="text-[10px] text-red-500 font-semibold uppercase tracking-widest ml-1">{errors.username}</p>}
                 </div>
-                {errors.email && <p className="text-[10px] text-red-500 font-bold uppercase tracking-widest ml-1">{errors.email}</p>}
-              </div>
 
-              <div className="space-y-1.5">
-                <label className="text-xs font-black text-slate-700 dark:text-slate-300 ml-1 uppercase tracking-widest">Password</label>
-                <div className="relative group">
-                  <Lock className={`absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 transition-colors ${errors.password ? 'text-red-400' : 'text-slate-400 group-focus-within:text-primary'}`} />
-                  <input
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    disabled={isLoading}
-                    className={`w-full bg-slate-50 dark:bg-slate-800/50 border rounded-2xl py-4 pl-12 pr-4 text-slate-900 dark:text-white focus:outline-none transition-all placeholder:text-slate-400 text-sm font-medium ${errors.password ? 'border-red-500/50 focus:border-red-500' : 'border-slate-200 dark:border-white/10 focus:border-primary/50 focus:bg-white dark:focus:bg-slate-800'}`}
-                    placeholder="Min 8 characters, incl. numbers"
-                  />
+                <div className="space-y-2">
+                  <label className="text-[11px] font-semibold uppercase tracking-widest text-[#6B7A7A] ml-1">Email Address</label>
+                  <div className="relative group">
+                    <Mail className={`absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 transition-colors ${errors.email ? 'text-red-400' : 'text-[#DAD7CD] group-focus-within:text-[#A3B18A]'}`} />
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      disabled={isLoading}
+                      className={`w-full bg-[#F4F7F5]/50 border rounded-xl py-3.5 pl-12 pr-4 text-[#2F3E46] focus:outline-none transition-all placeholder:text-[#DAD7CD] text-[15px] font-medium ${errors.email ? 'border-red-300' : 'border-[#DAD7CD]/30 focus:border-[#A3B18A] focus:bg-white'}`}
+                      placeholder="your@email.com"
+                    />
+                  </div>
+                  {errors.email && <p className="text-[10px] text-red-500 font-semibold uppercase tracking-widest ml-1">{errors.email}</p>}
                 </div>
-                {errors.password && <p className="text-[10px] text-red-500 font-bold uppercase tracking-widest ml-1">{errors.password}</p>}
-              </div>
 
-              <div className="flex items-center gap-2 ml-1 opacity-70">
-                <input type="checkbox" required disabled={isLoading} className="rounded bg-white/5 border-slate-300 dark:border-white/10 text-primary focus:ring-primary w-4 h-4 cursor-pointer" />
-                <label className="text-[10px] uppercase tracking-widest font-bold text-slate-500 dark:text-slate-400">I agree to the Study Terms of Service</label>
-              </div>
+                <div className="space-y-2">
+                  <label className="text-[11px] font-semibold uppercase tracking-widest text-[#6B7A7A] ml-1">Password</label>
+                  <div className="relative group">
+                    <Lock className={`absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 transition-colors ${errors.password ? 'text-red-400' : 'text-[#DAD7CD] group-focus-within:text-[#A3B18A]'}`} />
+                    <input
+                      type="password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      disabled={isLoading}
+                      className={`w-full bg-[#F4F7F5]/50 border rounded-xl py-3.5 pl-12 pr-4 text-[#2F3E46] focus:outline-none transition-all placeholder:text-[#DAD7CD] text-[15px] font-medium ${errors.password ? 'border-red-300' : 'border-[#DAD7CD]/30 focus:border-[#A3B18A] focus:bg-white'}`}
+                      placeholder="Min 8 characters required"
+                    />
+                  </div>
+                  {errors.password && <p className="text-[10px] text-red-500 font-semibold uppercase tracking-widest ml-1">{errors.password}</p>}
+                </div>
 
-              <motion.button
-                whileHover={!isLoading ? { scale: 1.02 } : {}}
-                whileTap={!isLoading ? { scale: 0.98 } : {}}
-                type="submit"
-                disabled={isLoading}
-                className={`w-full py-4 rounded-2xl font-black uppercase tracking-widest text-xs flex items-center justify-center gap-2 transition-all shadow-xl mt-4 outline-none ${isLoading ? 'bg-slate-200 dark:bg-slate-800 text-slate-400 cursor-not-allowed' : 'bg-primary text-white hover:bg-primary-dark shadow-primary/20 group'}`}
-              >
-                {isLoading ? (
-                  <>
-                    <div className="w-4 h-4 border-2 border-slate-400 border-t-transparent rounded-full animate-spin" />
-                    Registering...
-                  </>
-                ) : (
-                  <>
-                    Create My Account
-                    <Sparkles className="w-5 h-5 group-hover:rotate-12 transition-transform" />
-                  </>
-                )}
-              </motion.button>
-            </form>
-          </>
-        )}
+                <div className="flex items-center gap-3 ml-1">
+                  <input type="checkbox" required disabled={isLoading} className="rounded border-[#DAD7CD] text-[#A3B18A] focus:ring-[#A3B18A] w-4 h-4 cursor-pointer" />
+                  <label className="text-[11px] font-semibold uppercase tracking-widest text-[#6B7A7A]">I agree to the Study Terms</label>
+                </div>
 
-        <div className="mt-8 text-center">
-          <p className="text-slate-500 dark:text-slate-400 text-[10px] font-bold uppercase tracking-widest">
+                <button
+                  type="submit"
+                  disabled={isLoading}
+                  className={`w-full py-4 rounded-xl flex items-center justify-center gap-2 transition-all font-semibold uppercase tracking-widest text-[13px] shadow-lg outline-none ${isLoading ? 'bg-[#F4F7F5] text-[#DAD7CD]' : 'btn-primary'}`}
+                >
+                  {isLoading ? 'Creating Account...' : 'Create Account'}
+                  {!isLoading && <Sparkles size={18} />}
+                </button>
+              </form>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        <div className="mt-10 text-center">
+          <p className="text-[#6B7A7A] text-[13px] font-medium">
             Already preparing?{' '}
-            <Link to="/login" className="text-primary font-black hover:underline italic ml-1 outline-none">Log In Instead</Link>
+            <Link to="/login" className="text-[#A3B18A] font-semibold hover:text-[#588157] ml-1">Log In Instead</Link>
           </p>
         </div>
       </motion.div>

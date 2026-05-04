@@ -51,31 +51,79 @@ public class UserService {
         // Security: Disabled until verified
         user.setEnabled(false);
         user.setEmailVerified(false);
-        user.setVerificationToken(java.util.UUID.randomUUID().toString());
+        
+        // Generate 4-digit passcode instead of token
+        String passcode = String.format("%04d", new java.util.Random().nextInt(10000));
+        user.setVerificationPasscode(passcode);
+        user.setPasscodeExpiry(java.time.LocalDateTime.now().plusMinutes(20));
+        
+        // Ensure defaults are set to avoid SQL "no default value" errors
+        user.setStreak(0);
+        user.setAccuracy(0.0);
 
         User savedUser = userRepository.save(user);
 
-        // Send Verification Email
-        try {
-            String verifyUrl = "http://localhost:5173/#/verify/" + savedUser.getVerificationToken();
-            emailService.sendSimpleMessage(
-                savedUser.getEmail(),
-                "Verify Your Smart Revise Account",
-                "Hello " + savedUser.getUsername() + ",\n\n" +
-                "Welcome to Smart Revise! Please click the link below to verify your email and activate your account:\n" +
-                verifyUrl + "\n\n" +
-                "Study hard, stay smart!\n" +
-                "The Smart Revision Team"
-            );
-        } catch (Exception e) {
-            // Log error but don't fail registration
-            System.err.println("Failed to send verification email: " + e.getMessage());
-        }
+        // Send Verification Email with Passcode
+        sendPasscodeEmail(savedUser, passcode);
 
         return savedUser;
     }
 
+    private void sendPasscodeEmail(User user, String passcode) {
+        try {
+            emailService.sendSimpleMessage(
+                user.getEmail(),
+                "Verify Your Smart Revise Account",
+                "Hello " + user.getUsername() + ",\n\n" +
+                "Welcome to Smart Revise! Your 4-digit verification passcode is:\n\n" +
+                "   [" + passcode + "]\n\n" +
+                "This code will expire in 20 minutes.\n" +
+                "Please enter this code on the login screen to activate your account.\n\n" +
+                "Study hard, stay smart!\n" +
+                "The Smart Revision Team"
+            );
+        } catch (Exception e) {
+            System.err.println("Failed to send verification email: " + e.getMessage());
+        }
+    }
+
+    public void resendPasscode(String email) {
+        User user = userRepository.findByEmail(email.toLowerCase().trim())
+                .orElseThrow(() -> new RuntimeException("No account found with this email."));
+        
+        if (user.isEnabled()) {
+            throw new RuntimeException("This account is already verified.");
+        }
+
+        String passcode = String.format("%04d", new java.util.Random().nextInt(10000));
+        user.setVerificationPasscode(passcode);
+        user.setPasscodeExpiry(java.time.LocalDateTime.now().plusMinutes(20));
+        userRepository.save(user);
+
+        sendPasscodeEmail(user, passcode);
+    }
+
+    public void verifyPasscode(String email, String passcode) {
+        User user = userRepository.findByEmail(email.toLowerCase().trim())
+                .orElseThrow(() -> new RuntimeException("Account not found."));
+        
+        if (user.getPasscodeExpiry() == null || user.getPasscodeExpiry().isBefore(java.time.LocalDateTime.now())) {
+            throw new RuntimeException("Passcode has expired. Please request a new one.");
+        }
+
+        if (passcode.equals(user.getVerificationPasscode())) {
+            user.setEnabled(true);
+            user.setEmailVerified(true);
+            user.setVerificationPasscode(null);
+            user.setPasscodeExpiry(null);
+            userRepository.save(user);
+        } else {
+            throw new RuntimeException("Invalid verification passcode.");
+        }
+    }
+
     public void verifyUser(String token) {
+        // Fallback or deprecated link verification
         Optional<User> userOpt = userRepository.findAll().stream()
                 .filter(u -> token.equals(u.getVerificationToken()))
                 .findFirst();
@@ -84,7 +132,7 @@ public class UserService {
             User user = userOpt.get();
             user.setEnabled(true);
             user.setEmailVerified(true);
-            user.setVerificationToken(null); // Clear token
+            user.setVerificationToken(null);
             userRepository.save(user);
         } else {
             throw new RuntimeException("Invalid or expired verification token.");

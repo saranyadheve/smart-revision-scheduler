@@ -1,0 +1,29 @@
+{
+  "notificationHub": [
+    { "name": "Latest Notifications", "url": "https://www.tnpsc.gov.in/latest-notifications" },
+    { "name": "Annual Planner", "url": "https://www.tnpsc.gov.in/Annual-Planner.html" },
+    { "name": "Exam Dashboard", "url": "https://www.tnpscexams.in/" }
+  ],
+  "whereToStudy": [
+    { 
+      "title": "Samacheer Kalvi Books", 
+      "description": "The current official portal for all Tamil Nadu Samacheer school textbooks.", 
+      "link": "https://textbookcorp.in/" 
+    },
+    { 
+      "title": "Indian Polity - Laxmikanth", 
+      "description": "The gold standard for Indian Constitution and political system.", 
+      "link": "https://www.amazon.in/Indian-Polity-6th-Edition-Laxmikanth/dp/9389538473" 
+    },
+    { 
+      "title": "Tamil Nadu History", 
+      "description": "Official Samacheer History books and SCERT resources for TN History.", 
+      "link": "https://textbookcorp.in/" 
+    }
+  ],
+  "importantLinks": [
+    { "name": "TNPSC Official Portal", "url": "https://www.tnpsc.gov.in/" },
+    { "name": "One Time Registration (OTR)", "url": "https://apply.tnpscexams.in/otr" },
+    { "name": "Previous Year Question Papers", "url": "https://www.tnpsc.gov.in/previous-year-question-papers.html" }
+  ]
+}

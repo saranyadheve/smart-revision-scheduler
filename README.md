@@ -1,51 +1,53 @@
-# Smart Adaptive Revision Scheduler
+# Smart Adaptive Revision Scheduler 🧠
 
-A full-stack academic project for intelligent revision scheduling using Spring Boot and AI.
+A state-of-the-art full-stack platform for intelligent revision scheduling and AI-driven study assistance. The system uses machine learning to predict student fatigue and optimize learning intervals.
 
-## Project Structure
-- `smart-revision-scheduler` (Backend): Spring Boot application.
-- `ai-service` (AI Module): Python FastAPI application with Scikit-Learn.
+## 🚀 Core Features
+- **AI Study Assistant**: A strict, persona-based AI tutor for UPSC, GATE, TNPSC, and IT preparation.
+- **Adaptive Scheduling**: Automatically schedules your next revision based on a real-time fatigue score (Random Forest).
+- **Global Intel Hub**: Content generation pipeline for study materials.
+- **Visual Learning Engine**: Modern UI with glassmorphic aesthetics and micro-animations.
 
-## Prerequisites
-- Java 17+
-- Maven
-- Python 3.9+
+## 📁 Architecture
+- **Frontend** (React + Vite): `http://localhost:5173`
+- **Backend** (Spring Boot + Security): `http://localhost:8081`
+- **AI Service** (Python FastAPI + Scikit-Learn): `http://localhost:8000`
 
-## Setup & Running
+## ⚙️ Prerequisites
+- Java 21+
+- Node.js 18+
+- Python 3.10+
+- MySQL 8.0
 
-### 1. AI Service (Python)
-The AI service provides fatigue detection and must be running for the backend to work.
+## 🛠️ Setup & Execution
 
+### 1. AI Service (Port 8000)
 ```bash
 cd ai-service
+python -m venv venv
+.\venv\Scripts\activate
 pip install -r requirements.txt
 python main.py
 ```
-*Runs on http://localhost:8000*
 
-### 2. Backend (Spring Boot)
-The backend handles user management, data storage, and scheduling logic.
-
+### 2. Backend (Port 8081)
+Ensure MySQL is running and your `application.properties` is configured correctly.
 ```bash
-cd smart-revision-scheduler
-./mvnw clean spring-boot:run
+cd backend
+.\mvnw.cmd spring-boot:run
 ```
-*Runs on http://localhost:8080*
 
-## API Endpoints
+### 3. Frontend (Port 5173)
+```bash
+cd frontend
+npm install
+npm run dev
+```
 
-### Auth
-- `POST /api/auth/register` - Register a new user
-- `POST /api/auth/login` - Login
+## 🔒 Security & Auth
+The system uses JWT-based authentication. All API requests (except `/api/auth/**`) require a valid `Bearer` token.
+- **Register**: `POST /api/auth/register`
+- **Login**: `POST /api/auth/login` (Returns JWT)
 
-### Revisions
-- `POST /api/revisions` - Log a study session (topic, duration, difficulty)
-- `GET /api/revisions/user/{userId}` - Get history
-
-### Schedule
-- `GET /api/schedule/generate?userId={id}&topic={topic}&difficulty={diff}` - Generate next revision time (Calls AI)
-
-## Features
-- **AI Fatigue Detection**: Uses Random Forest to predict fatigue based on frequency, gap, duration, and difficulty.
-- **Adaptive Scheduling**: Adjusts revision intervals based on fatigue score.
-- **H2 Database**: In-memory database for easy development (configured in `application.properties`).
+---
+*Engineered for Excellence • Empowering the Future of Education*

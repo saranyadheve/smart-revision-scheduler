@@ -6,13 +6,28 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
+      '/api/notes': {
+        target: 'http://127.0.0.1:5000',
+        changeOrigin: true,
+        secure: false,
+      },
+      '/api/personal-notes': {
+        target: 'http://127.0.0.1:5000',
+        changeOrigin: true,
+        secure: false,
+      },
+      '/api/ai': {
+        target: 'http://127.0.0.1:5000',
+        changeOrigin: true,
+        secure: false,
+      },
       '/api': {
-        target: 'http://localhost:8080',
+        target: 'http://127.0.0.1:8080',
         changeOrigin: true,
         secure: false,
       },
       '/ai': {
-        target: 'http://localhost:8000',
+        target: 'http://127.0.0.1:8000',
         changeOrigin: true,
         secure: false,
         rewrite: (path) => path.replace(/^\/ai/, ''),

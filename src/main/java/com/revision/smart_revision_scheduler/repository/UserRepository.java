@@ -11,6 +11,9 @@ import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<User, Long> {
     Optional<User> findByUsername(String username);
+    Optional<User> findByEmail(String email);
+    boolean existsByUsername(String username);
+    boolean existsByEmail(String email);
 
     @Query("SELECT u FROM User u WHERE u.lastLogin < :threshold AND (u.lastInactivityReminderSent IS NULL OR u.lastInactivityReminderSent < u.lastLogin)")
     List<User> findInactiveUsersForReminder(@Param("threshold") LocalDateTime threshold);

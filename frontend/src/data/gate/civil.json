@@ -1,0 +1,23 @@
+{
+  "branch": "Civil Engineering",
+  "subjects": [
+    {
+      "id": "som",
+      "title": "Strength of Materials",
+      "description": "Stress-strain, shear force, and bending moment analysis.",
+      "topics": ["Stress-Strain", "SFD/BMD", "Torsion", "Beams"],
+      "pdf": "https://nptel.ac.in/courses/105105108"
+    },
+    {
+      "id": "struc",
+      "title": "Structural Analysis",
+      "description": "Indeterminate structures, influence lines, and matrix methods.",
+      "topics": ["Trusses", "Frames", "Influence Lines", "Matrix Methods"],
+      "pdf": "https://nptel.ac.in/courses/105101085"
+    }
+  ],
+  "pyqs": [
+    { "year": "2024", "filename": "gate_civil_2024.pdf" },
+    { "year": "2023", "filename": "gate_civil_2023.pdf" }
+  ]
+}

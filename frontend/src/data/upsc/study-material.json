@@ -1,0 +1,29 @@
+{
+  "notificationHub": [
+    { "name": "Civil Services (Pre) Exam 2025", "url": "https://www.upsc.gov.in/examinations/Civil%20Services%20%28Preliminary%29%20Examination%2C%202025" },
+    { "name": "Current Examinations", "url": "https://www.upsc.gov.in/examinations/active-exams" },
+    { "name": "Annual Calendar 2025", "url": "https://www.upsc.gov.in/examinations/Exam%20Calendar" }
+  ],
+  "whereToStudy": [
+    { 
+      "title": "NCERT Books", 
+      "description": "Fundamental basics (6th to 12th). History, Geography, Polity, Economics.", 
+      "link": "https://ncert.nic.in/textbook.php" 
+    },
+    { 
+      "title": "Hindu / Indian Express", 
+      "description": "Daily newspaper analysis for Current Affairs and Opinion.", 
+      "link": "https://www.thehindu.com/opinion/editorial/" 
+    },
+    { 
+      "title": "PIB & PRS Reports", 
+      "description": "Government schemes, legislative updates, and policy analysis.", 
+      "link": "https://pib.gov.in/" 
+    }
+  ],
+  "importantLinks": [
+    { "name": "UPSC Official Website", "url": "https://www.upsc.gov.in" },
+    { "name": "Online Application (ORA)", "url": "https://upsconline.nic.in" },
+    { "name": "Previous Year Papers", "url": "https://www.upsc.gov.in/examinations/previous-question-papers" }
+  ]
+}

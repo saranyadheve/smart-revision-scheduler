@@ -1,0 +1,14 @@
+{
+  "group": "Group 2 & 2A",
+  "id": "group2-2a",
+  "syllabus": [
+    { "title": "Revised Combined Civil Services Exam-II Scheme", "file": "group2_scheme_2025.pdf" },
+    { "title": "Group 2 Prelims Syllabus", "file": "group2_prelims_syll.pdf" },
+    { "title": "Group 2 Mains English-Tamil Translation", "file": "group2_mains_trans.pdf" }
+  ],
+  "pyq": [
+    { "year": "2024", "title": "Model Question Paper (Combined)", "file": "group2_2024_model.pdf" },
+    { "year": "2022", "title": "Group 2 Prelims Official Paper", "file": "group2_2022_prelims.pdf" },
+    { "year": "2018", "title": "Group 2 Previous Year Paper", "file": "group2_2018_prelims.pdf" }
+  ]
+}

@@ -17,6 +17,11 @@ public class RevisionController {
 
     private final RevisionService revisionService;
 
+    @GetMapping("/stats/{userId}")
+    public ResponseEntity<RevisionService.StatsResponse> getStats(@PathVariable Long userId) {
+        return ResponseEntity.ok(revisionService.getUserStats(userId));
+    }
+
     @Data
     public static class RevisionRequest {
         private String topicName;

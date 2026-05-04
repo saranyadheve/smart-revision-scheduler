@@ -1,0 +1,47 @@
+[
+  {
+    "course": "upsc",
+    "question": "What is UPSC?",
+    "answer": "The Union Public Service Commission (UPSC) is India's premier central recruiting agency responsible for appointments to and examinations for All India services and group A & group B of Central services."
+  },
+  {
+    "course": "upsc",
+    "question": "How many stages are there in UPSC CSE?",
+    "answer": "UPSC Civil Services Examination consists of 3 stages: 1. Preliminary Examination (Objective), 2. Main Examination (Written), and 3. Personality Test (Interview)."
+  },
+  {
+    "course": "upsc",
+    "question": "What is the age limit for UPSC?",
+    "answer": "For the General category, the candidate must be between 21 and 32 years of age. There are relaxations for SC/ST (5 years) and OBC (3 years)."
+  },
+  {
+    "course": "tnpsc",
+    "question": "What is TNPSC?",
+    "answer": "The Tamil Nadu Public Service Commission (TNPSC) is a department of the government of Tamil Nadu that is responsible for governing the recruitment of personnel into the state's public service."
+  },
+  {
+    "course": "tnpsc",
+    "question": "What is the syllabus for Group 4?",
+    "answer": "TNPSC Group 4 syllabus primarily includes General Studies (75 items), Aptitude and Mental Ability Test (25 items), and General Tamil or General English (100 items)."
+  },
+  {
+    "course": "gate",
+    "question": "What is GATE?",
+    "answer": "Graduate Aptitude Test in Engineering (GATE) is an examination that primarily tests the comprehensive understanding of various undergraduate subjects in engineering and science for admission into the Masters Program and Job in Public Sector Companies."
+  },
+  {
+    "course": "gate",
+    "question": "What is the validity of GATE score?",
+    "answer": "The GATE score is valid for 3 years from the date of announcement of the results."
+  },
+  {
+    "course": "it interview",
+    "question": "What is a deadlock in OS?",
+    "answer": "A deadlock is a situation where a set of processes are blocked because each process is holding a resource and waiting for another resource acquired by some other process."
+  },
+  {
+    "course": "it interview",
+    "question": "What is the difference between Array and LinkedList?",
+    "answer": "Arrays are fixed-size, contiguous memory structures with O(1) access time. LinkedLists are dynamic-size structures where elements are linked by pointers, offering O(1) insertion/deletion but O(n) access time."
+  }
+]

@@ -1,5 +1,6 @@
 package com.revision.smart_revision_scheduler.controller;
 
+import java.util.Optional;
 import com.revision.smart_revision_scheduler.model.RevisionSession;
 import com.revision.smart_revision_scheduler.model.Schedule;
 import com.revision.smart_revision_scheduler.model.User;
@@ -20,6 +21,7 @@ public class RevisionController {
 
     private final RevisionService revisionService;
     private final UserService userService;
+    private final com.revision.smart_revision_scheduler.repository.ScheduleRepository scheduleRepository;
 
     @Data
     public static class RevisionRequest {
@@ -32,7 +34,9 @@ public class RevisionController {
     public static class RevisionResponse {
         private double fatigueScore;
         private LocalDate revisionDate;
-        private String emailStatus; // "Reminder sent" or "Active user"
+        private String emailStatus;
+        private int streak;
+        private double accuracy;
     }
 
     @PostMapping
@@ -54,10 +58,13 @@ public class RevisionController {
     @GetMapping("/stats/{userId}")
     public ResponseEntity<RevisionResponse> getLatestStats(@PathVariable Long userId) {
         User user = userService.getUserById(userId);
+        Optional<Schedule> latestSchedule = scheduleRepository.findTopByRevisionSessionUserOrderByRevisionDateDesc(user);
         
         RevisionResponse response = new RevisionResponse();
-        response.setFatigueScore(0.42); 
-        response.setRevisionDate(LocalDate.now().plusDays(1));
+        response.setFatigueScore(latestSchedule.map(Schedule::getFatigueScore).orElse(0.0)); 
+        response.setRevisionDate(latestSchedule.map(Schedule::getRevisionDate).orElse(LocalDate.now()));
+        response.setStreak(user.getStreak());
+        response.setAccuracy(user.getAccuracy());
         
         // Logic for email status
         if (user.getLastInactivityReminderSent() != null && 

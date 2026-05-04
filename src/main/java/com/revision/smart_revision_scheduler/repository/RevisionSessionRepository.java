@@ -15,4 +15,6 @@ public interface RevisionSessionRepository extends JpaRepository<RevisionSession
     
     // Find the most recent session for this topic to calculate gap days
     Optional<RevisionSession> findTopByUserAndTopicNameOrderByStudiedDateDesc(User user, String topicName);
+    
+    java.util.List<RevisionSession> findByUserOrderByStudiedDateDesc(User user);
 }

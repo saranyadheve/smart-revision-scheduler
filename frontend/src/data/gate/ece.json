@@ -1,0 +1,23 @@
+{
+  "branch": "Electronics and Communication Engineering",
+  "subjects": [
+    {
+      "id": "signals",
+      "title": "Signals & Systems",
+      "description": "LTI systems, Fourier analysis, Laplace and Z-transforms.",
+      "topics": ["Fourier Series", "FT", "LT", "ZT", "Sampling"],
+      "pdf": "https://www.tutorialspoint.com/signals_and_systems/index.htm"
+    },
+    {
+      "id": "comm",
+      "title": "Communication Systems",
+      "description": "Analog and digital communication, information theory.",
+      "topics": ["AM/FM", "PCM", "QPSk", "Information Entropy"],
+      "pdf": "https://www.tutorialspoint.com/principles_of_communication/index.htm"
+    }
+  ],
+  "pyqs": [
+    { "year": "2024", "filename": "gate_ece_2024.pdf" },
+    { "year": "2023", "filename": "gate_ece_2023.pdf" }
+  ]
+}

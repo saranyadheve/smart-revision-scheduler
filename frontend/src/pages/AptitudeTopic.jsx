@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ChevronLeft, Zap, BookOpen, PenTool } from 'lucide-react';
+import { ChevronLeft, Zap, BookOpen } from 'lucide-react';
 import VisualEngine from '../components/VisualEngine';
 import PYQModule from '../components/PYQModule';
 
@@ -13,51 +13,60 @@ const AptitudeTopic = () => {
   const title = topicId.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
 
   return (
-    <div className="relative w-full min-h-screen pt-24 pb-12 px-6 md:px-12 bg-slate-50 dark:bg-slate-950 transition-colors overflow-hidden font-sans">
+    <div className="relative w-full min-h-screen pt-24 pb-12 px-6 md:px-12 bg-[#F4F7F5] transition-colors overflow-x-hidden font-sans">
       <VisualEngine />
       
       <div className="max-w-7xl mx-auto relative z-10 space-y-8">
         {/* Back Button */}
         <button 
           onClick={() => navigate('/courses/aptitude')}
-          className="flex items-center gap-2 text-slate-500 hover:text-primary transition-colors text-[10px] font-black uppercase tracking-[0.3em] bg-white/40 dark:bg-white/5 py-2 px-4 rounded-full border border-slate-200/20 dark:border-white/5 w-fit"
+          className="flex items-center gap-2 text-[#6B7A7A] hover:text-[#588157] transition-all text-[11px] font-semibold uppercase tracking-widest bg-white/80 py-2.5 px-5 rounded-xl border border-[#DAD7CD]/30 w-fit shadow-sm"
         >
-          <ChevronLeft className="w-4 h-4" /> Back to Modules
+          <ChevronLeft size={16} /> Back to Modules
         </button>
 
         <header className="mb-16">
           <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary font-black uppercase tracking-[0.5em] text-[10px] mb-4 shadow-2xl shadow-primary/5"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#A3B18A]/10 border border-[#A3B18A]/20 text-[#588157] font-semibold uppercase tracking-[0.3em] text-[10px] mb-6"
           >
-              <Zap className="w-4 h-4 fill-primary" /> Topic Drill
+              <Zap size={14} className="text-[#A3B18A]" /> Topic Drill
           </motion.div>
           <motion.h1 
-              initial={{ y: 20, opacity: 0 }}
+              initial={{ y: 10, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              className="text-5xl md:text-7xl font-black text-slate-800 dark:text-white italic tracking-tighter uppercase leading-none"
+              className="text-4xl md:text-5xl font-semibold text-[#2F3E46] font-poppins tracking-tight"
           >
               {title}
           </motion.h1>
+          <div className="w-16 h-1.5 bg-[#A3B18A] rounded-full mt-6" />
         </header>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
             
             {/* Core Theory & Formulas Placeholder */}
             <div className="lg:col-span-4 space-y-8">
-                <div className="glass rounded-[3rem] p-8 border-slate-200/20 dark:border-white/5 bg-white/40 dark:bg-white/5 backdrop-blur-3xl shadow-xl">
+                <div className="bg-white rounded-[32px] p-8 border border-[#DAD7CD]/30 shadow-sm">
                     <div className="flex items-center gap-4 mb-8">
-                        <div className="p-3 bg-blue-500/10 text-blue-500 rounded-2xl">
-                            <BookOpen className="w-6 h-6" />
+                        <div className="p-3 bg-[#F4F7F5] text-[#A3B18A] rounded-2xl border border-[#DAD7CD]/20">
+                            <BookOpen size={24} />
                         </div>
-                        <h2 className="text-xl font-black uppercase italic tracking-tighter text-slate-800 dark:text-white">Core Concepts</h2>
+                        <h2 className="text-[18px] font-semibold text-[#2F3E46] font-poppins tracking-tight uppercase tracking-wider">Core Concepts</h2>
                     </div>
-                    <div className="p-5 rounded-2xl bg-white/50 dark:bg-slate-900/50 border border-slate-200/50 dark:border-white/5 animate-pulse text-xs font-bold text-slate-500 uppercase tracking-widest text-center">
-                        Syncing Formulas...
+                    <div className="p-6 rounded-2xl bg-[#F4F7F5]/50 border border-[#DAD7CD]/30 text-center space-y-4">
+                        <div className="flex justify-center italic text-[#A3B18A]">
+                           <span className="dot animate-bounce mx-0.5 w-1.5 h-1.5 bg-[#A3B18A] rounded-full" />
+                           <span className="dot animate-bounce delay-100 mx-0.5 w-1.5 h-1.5 bg-[#A3B18A] rounded-full" />
+                           <span className="dot animate-bounce delay-200 mx-0.5 w-1.5 h-1.5 bg-[#A3B18A] rounded-full" />
+                        </div>
+                        <p className="text-[11px] font-semibold text-[#6B7A7A] uppercase tracking-widest">
+                           Syncing Formulas...
+                        </p>
                     </div>
-                    <p className="text-xs text-slate-500 font-medium leading-relaxed mt-4 italic">
-                        This section represents the future scalable module where core theory and dynamic formulas will be injected via database.
+                    <p className="text-[13px] text-[#6B7A7A] leading-relaxed mt-8 font-inter bg-[#F4F7F5]/30 p-5 rounded-2xl border border-dashed border-[#DAD7CD]">
+                        Our database is currently optimizing core theory and dynamic shortcuts for <span className="text-[#588157] font-semibold">{title}</span>. 
+                        They will be injected here automatically soon.
                     </p>
                 </div>
             </div>

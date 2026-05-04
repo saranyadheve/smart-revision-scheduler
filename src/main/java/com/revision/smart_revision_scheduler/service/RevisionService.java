@@ -2,15 +2,20 @@ package com.revision.smart_revision_scheduler.service;
 
 import com.revision.smart_revision_scheduler.model.RevisionSession;
 import com.revision.smart_revision_scheduler.model.Schedule;
+import com.revision.smart_revision_scheduler.model.User;
 import com.revision.smart_revision_scheduler.repository.RevisionSessionRepository;
 import com.revision.smart_revision_scheduler.repository.ScheduleRepository;
+import com.revision.smart_revision_scheduler.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.List;
 import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -20,6 +25,52 @@ public class RevisionService {
     private final RevisionSessionRepository revisionSessionRepository;
     private final ScheduleRepository scheduleRepository;
     private final FatigueDetectionAgent fatigueDetectionAgent;
+    private final UserRepository userRepository;
+
+    public StatsResponse getUserStats(Long userId) {
+        User user = userRepository.findById(userId).orElseThrow();
+        
+        Optional<Schedule> latestSchedule = scheduleRepository.findTopByRevisionSessionUserOrderByIdDesc(user);
+        
+        double fatigue = latestSchedule.map(Schedule::getFatigueScore).orElse(0.0);
+        LocalDate nextRevision = latestSchedule.map(Schedule::getRevisionDate).orElse(null);
+        
+        // Calculate Streak
+        List<RevisionSession> allSessions = revisionSessionRepository.findByUserOrderByStudiedDateDesc(user);
+        int streak = calculateStreak(allSessions);
+
+        return new StatsResponse(fatigue, nextRevision, streak);
+    }
+
+    private int calculateStreak(List<RevisionSession> sessions) {
+        if (sessions.isEmpty()) return 0;
+        
+        Set<LocalDate> uniqueDates = sessions.stream()
+                .map(RevisionSession::getStudiedDate)
+                .collect(Collectors.toSet());
+        
+        int streak = 0;
+        LocalDate current = LocalDate.now();
+        
+        // If they haven't studied today, check if they studied yesterday to keep the streak alive
+        if (!uniqueDates.contains(current)) {
+            current = current.minusDays(1);
+        }
+        
+        while (uniqueDates.contains(current)) {
+            streak++;
+            current = current.minusDays(1);
+        }
+        
+        return streak;
+    }
+
+    @lombok.Value
+    public static class StatsResponse {
+        double fatigueScore;
+        LocalDate revisionDate;
+        int streak;
+    }
 
     public Schedule processRevision(RevisionSession session) {
         // 1. Save Revision Session

@@ -25,6 +25,8 @@ public class User {
     @Column(unique = true)
     private String email;
 
+    private int streak = 0;
+    private double accuracy = 0.0;
     private java.time.LocalDateTime lastLogin;
 
     private java.time.LocalDateTime lastInactivityReminderSent;
@@ -34,4 +36,6 @@ public class User {
     private boolean enabled = false;
     private boolean isEmailVerified = false;
     private String verificationToken;
+    private String verificationPasscode;
+    private java.time.LocalDateTime passcodeExpiry;
 }

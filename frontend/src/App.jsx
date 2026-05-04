@@ -15,22 +15,44 @@ import UPSC from './pages/UPSC';
 import IPS from './pages/IPS';
 import Aptitude from './pages/Aptitude';
 import AptitudeTopic from './pages/AptitudeTopic';
+import AptitudePracticeSession from './pages/AptitudePracticeSession';
 import Courses from './pages/Courses';
-import GATE from './pages/GATE';
+import GateHub from './pages/GATE';
+import GateBranchDetail from './pages/GateBranchDetail';
+import AIStudyRoom from './pages/AIStudyRoom';
 import Interview from './pages/Interview';
-import MockExam from './pages/MockExam';
 import StudyNotes from './pages/StudyNotes';
 import AdminDashboard from './pages/AdminDashboard';
 import MouseParallax from './components/MouseParallax';
-import MockTests from './pages/MockTests';
-import UPSCMockTest from './pages/UPSCMockTest';
-import MockTest from './pages/MockTest';
+import PersonalNotes from './pages/PersonalNotes';
+import SubtopicTodo from './pages/SubtopicTodo';
 import NotFound from './pages/NotFound';
 
+// Practice Test Module
+import PracticeDashboard from './pages/PracticeTest/PracticeDashboard';
+import PracticeTrackConfig from './pages/PracticeTest/PracticeTrackConfig';
+import PracticeTestRunner from './pages/PracticeTest/PracticeTestRunner';
+import PracticeTestResult from './pages/PracticeTest/PracticeTestResult';
+import PracticeTestReview from './pages/PracticeTest/PracticeTestReview';
+import UPSCNotes from './pages/UPSCNotes/UPSCNotes';
+import PrelimsNotes from './pages/UPSCNotes/PrelimsNotes';
+import MainsNotes from './pages/UPSCNotes/MainsNotes';
+import PYQComponent from './pages/UPSCNotes/PYQComponent';
+import TNPSCNotes from './pages/TNPSCNotes/TNPSCNotes';
+import Group1 from './pages/TNPSCNotes/Group1';
+import Group2And2A from './pages/TNPSCNotes/Group2And2A';
+import Group4 from './pages/TNPSCNotes/Group4';
+import StudyMaterial from './pages/TNPSCNotes/StudyMaterial';
+import PrepDashboard from './pages/PrepDashboard';
+import CourseDashboard from './pages/CourseDashboard';
+import CourseSubjectView from './pages/CourseSubjectView';
+import PlanLauncher from './pages/PlanLauncher';
+import PlanDashboard from './pages/PlanDashboard';
+
 const ProtectedLayout = () => (
-  <div className="flex w-full min-h-screen transition-colors duration-500">
+  <div className="flex w-full min-h-screen bg-[#F4F7F5]">
     <Sidebar />
-    <main className="flex-grow pl-72 w-full">
+    <main className="flex-grow pl-64 w-full">
       <Outlet />
     </main>
   </div>
@@ -40,6 +62,10 @@ const AdminRoute = () => {
     const { user } = useAuth();
     return user?.role === 'ADMIN' ? <Outlet /> : <Navigate to="/dashboard" />;
 };
+
+import LearningHubView from './pages/LearningHubView';
+import TopicListView from './pages/TopicListView';
+import TopicContentView from './pages/TopicContentView';
 
 function App() {
   React.useEffect(() => {
@@ -69,20 +95,50 @@ function App() {
                   {/* Protected Routes - with Sidebar Layout */}
                   <Route element={<ProtectedRoute />}>
                     <Route element={<ProtectedLayout />}>
-                      <Route path="/dashboard" element={<Dashboard />} />
-                      <Route path="/courses" element={<Courses />} />
-                      <Route path="/courses/upsc" element={<UPSC />} />
-                      <Route path="/courses/ips" element={<IPS />} />
-                      <Route path="/courses/aptitude" element={<Aptitude />} />
-                      <Route path="/courses/aptitude/:topicId" element={<AptitudeTopic />} />
-                      <Route path="/gate" element={<GATE />} />
-                      <Route path="/interview" element={<Interview />} />
-                      <Route path="/mock-tests" element={<MockTests />} />
-                      <Route path="/mock/upsc" element={<UPSCMockTest />} />
-                      <Route path="/mock/test" element={<MockTest />} />
-                      <Route path="/mock/exam" element={<MockExam />} />
-                      <Route path="/notes" element={<StudyNotes />} />
+                      <Route path="/dashboard" element={<PrepDashboard />} />
+                      <Route path="/todo" element={<SubtopicTodo />} />
+                      <Route path="/aptitude" element={<Aptitude />} />
+                      <Route path="/aptitude/practice/:module/:subtopicId" element={<AptitudePracticeSession />} />
+                      <Route path="/practice-tests" element={<PracticeDashboard />} />
+                      <Route path="/practice-tests/:track" element={<PracticeTrackConfig />} />
+                      <Route path="/practice-tests/:track/run" element={<PracticeTestRunner />} />
+                      <Route path="/practice-tests/:track/result" element={<PracticeTestResult />} />
+                      <Route path="/practice-tests/:track/review" element={<PracticeTestReview />} />
+                      <Route path="/ips" element={<IPS />} />
+                      <Route path="/study-notes" element={<StudyNotes />} />
                       
+                      {/* Unified Platform Routes */}
+                      <Route path="/notes" element={<PersonalNotes />} />
+                      <Route path="/notes/upsc" element={<UPSCNotes />} />
+                      <Route path="/notes/tnpsc" element={<TNPSCNotes />} />
+                      <Route path="/notes/tnpsc/group1/:tab?" element={<Group1 />} />
+                      <Route path="/notes/tnpsc/group2and2a/:tab?" element={<Group2And2A />} />
+                      <Route path="/notes/tnpsc/group4/:tab?" element={<Group4 />} />
+                      <Route path="/notes/tnpsc/study-material" element={<StudyMaterial />} />
+                      
+                      {/* GATE Preparation Track */}
+                      <Route path="/notes/gate" element={<GateHub />} />
+                      <Route path="/notes/gate/:branch" element={<GateBranchDetail />} />
+                      
+                      {/* IT Interview Track */}
+                      <Route path="/notes/it-interview" element={<Interview />} />
+                      
+                      {/* Global AI Study Room */}
+                      <Route path="/ai-study-room" element={<AIStudyRoom />} />
+                      
+                      {/* Courses Module */}
+                      <Route path="/notes/courses" element={<CourseDashboard />} />
+                      <Route path="/notes/courses/:track/:subjectId" element={<CourseSubjectView />} />
+                      
+                      {/* Plan Generator Module */}
+                      <Route path="/notes/plan-generator/launch" element={<PlanLauncher />} />
+                      <Route path="/notes/plan-generator/dashboard" element={<PlanDashboard />} />
+                      
+                      {/* AI Learning Hub Module */}
+                      <Route path="/learning-hub" element={<LearningHubView />} />
+                      <Route path="/learning-hub/module/:moduleId" element={<TopicListView />} />
+                      <Route path="/learning-hub/topic/:topicId" element={<TopicContentView />} />
+
                       {/* Admin Only */}
                       <Route element={<AdminRoute />}>
                           <Route path="/admin-dashboard" element={<AdminDashboard />} />

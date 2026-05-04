@@ -49,7 +49,7 @@ const VisualEngine = () => {
 
   return (
     <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-50/50 via-transparent to-slate-200/50 dark:from-slate-950 dark:via-[#020617] dark:to-slate-900 transition-colors duration-1000 opacity-100 dark:opacity-90" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#F4F7F5] via-white to-[#EAF0EA] transition-colors duration-1000" />
       
       {visibleElements.map((el, index) => (
         <FloatingIcon 
