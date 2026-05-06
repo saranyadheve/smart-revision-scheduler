@@ -13,7 +13,8 @@ import {
   BookOpen,
   PlayCircle,
   Activity,
-  Clock
+  Clock,
+  Brain
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { getStats, getUserTodos } from '../services/api';
@@ -128,7 +129,9 @@ const PrepDashboard = () => {
     const displayStats = [
         { label: "Completion rate", value: completionRate > 0 ? `${completionRate}%` : "No tasks yet", sub: "Avg per week", icon: BarChart3 },
         { label: "Study Streak", value: stats.streak > 0 ? `${stats.streak} Days` : "Start Streak", sub: "Personal Best: 24", icon: TrendingUp },
-        { label: "Tasks Completed", value: todos.filter(t => t.completed).length || "0", sub: "Total this month", icon: CheckCircle2 }
+        { label: "Tasks Completed", value: todos.filter(t => t.completed).length || "0", sub: "Total this month", icon: CheckCircle2 },
+        { label: "Fatigue Level", value: `${stats.fatigueScore}%`, sub: stats.fatigueScore > 70 ? "High Strain" : "Optimal", icon: Brain },
+        { label: "Next Revision", value: stats.nextRevision, sub: "Scheduled Date", icon: Calendar }
     ];
 
     return (

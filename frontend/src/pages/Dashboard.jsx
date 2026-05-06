@@ -12,7 +12,8 @@ import {
   Layout,
   Brain,
   MessageSquare,
-  BookOpen
+  BookOpen,
+  Calendar
 } from 'lucide-react';
 import QuotesPanel from '../components/QuotesPanel';
 
@@ -139,7 +140,7 @@ const Dashboard = () => {
         </header>
 
         {/* Primary Stats Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <ProgressCard 
             icon={Zap} 
             value={`${stats.streak} Days`} 
@@ -164,6 +165,19 @@ const Dashboard = () => {
             value={stats.aiInteractions} 
             label="AI Interactions" 
             color="bg-purple-500" 
+          />
+          <ProgressCard 
+            icon={Brain} 
+            value={`${stats.fatigueScore}%`} 
+            label="Fatigue Level" 
+            color={stats.fatigueScore > 70 ? "bg-red-500" : stats.fatigueScore > 40 ? "bg-amber-500" : "bg-emerald-500"} 
+            subValue={stats.fatigueScore > 70 ? "HIGH STRAIN" : "OPTIMAL"}
+          />
+          <ProgressCard 
+            icon={Calendar} 
+            value={stats.nextRevision} 
+            label="Next Revision" 
+            color="bg-blue-600" 
           />
         </div>
 
